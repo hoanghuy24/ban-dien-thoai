@@ -5,36 +5,77 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.sell.entity.Product;
 import com.sell.hibernate.HibernateUI;
 
+@Service
 public class Search {
-	public List<Product> getResultSearch(String keyword) {
-		Session session = HibernateUI.getSessionFactory().openSession();
-		@SuppressWarnings("unchecked")
-		Query query = session.createQuery("From Product as P Where P.name like '%" + keyword + "%'");
-		List<Product> list = query.getResultList();
-		session.close();
-		return list;
 
-	}
+	@Autowired
+	PaginationService paginationService;
 
-	public String check(String keyword, Model model) {
-		if(getResultSearch(keyword).size() == 0) {
-			model.addAttribute("notResult", "Không có kết quả nào cho " + keyword);
+	public String PaginationSearch(String keyword, Model model, int page) {
+		int size = getResultSearch(keyword).size();
+		int numberOfPage = paginationService.page(getResultSearch(keyword), IDCategory.total);
+		if (size == 0) {
+			model.addAttribute("notResult", "Not Result");
 			return "view/ResultSearch";
 		}
-		model.addAttribute("result", "Có " + getResultSearch(keyword).size() + " kết quả tìm kiếm cho " + keyword);
-		model.addAttribute("listResult", getResultSearch(keyword));
+		model.addAttribute("keyword", keyword);
+		model.addAttribute("result", "There " + size + " result for " + keyword);
+		model.addAttribute("listResult", pagination(page, keyword, IDCategory.total));
+		model.addAttribute("page", numberOfPage);
 		return "view/ResultSearch";
 	}
 
-	public static void main(String[] args) {
-		Search s = new Search();
-		for (Product p : s.getResultSearch("Ipho")) {
-			System.out.println(p.getName());
+	@SuppressWarnings("unchecked")
+	public List<Product> pagination(int page, String keyword, int total) {
+		int first = 0;
+		if (page > 1) {
+			first = (first + total) * (page - 1);
+			System.out.println(first);
 		}
+		List<Product> list = null;
+		Session session = HibernateUI.getSessionFactory().openSession();
+		Query query = session.createQuery(
+				"From " + Product.class.getName() + " as p where p.name like'%" + keyword + "%' order by p.id desc");
+		query.setFirstResult(first);
+		System.out.println("Page: "+ page +"\nFirst: " + first +"\nTotal :"+ total);
+		query.setMaxResults(total);
+		list = query.getResultList();
+		session.close();
+		return list;
+	}
+
+	public List<Product> getResultSearch(String keyword) {
+		Session session = HibernateUI.getSessionFactory().openSession();
+		@SuppressWarnings("unchecked")
+		List<Product> list = session.createQuery(
+				"From " + Product.class.getName() + " as p where p.name like '%" + keyword + "%' order by p.id desc")
+				.getResultList();
+		session.close();
+		return list;
+	}
+
+	/*
+	 * public String check(String keyword, Model model) { if
+	 * (getResultSearch(keyword).size() == 0) { model.addAttribute("notResult",
+	 * "Không có kết quả nào cho " + keyword); return "view/ResultSearch"; }
+	 * model.addAttribute("result", "Có " + getResultSearch(keyword).size() +
+	 * " kết quả cho " + keyword); model.addAttribute("listResult",
+	 * getResultSearch(keyword)); return "view/ResultSearch"; }
+	 */
+	
+	public static void main(String[] args) {
+		
+		String a = "hahha   ahsaus  asa a";
+		String b = "";
+		a.replaceAll("-", " ");
+		System.out.println(a);
+		
 	}
 }
