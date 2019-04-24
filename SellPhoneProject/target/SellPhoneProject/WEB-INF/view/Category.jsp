@@ -33,6 +33,11 @@
             </c:forEach>
         </div>
     </section>
+    <c:if test="${ page > 1 }">
+    	<c:forEach var="page" begin="1" end="${ page }">
+    		<a href="${ category }-page-${ page }">Page ${ page }</a>
+    	</c:forEach>
+    </c:if>
 </div>
 </body>
 </html>

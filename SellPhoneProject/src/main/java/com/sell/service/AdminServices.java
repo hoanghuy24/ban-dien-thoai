@@ -10,14 +10,14 @@ import org.springframework.ui.Model;
 public class AdminServices {
     @Autowired
     UsersImpl userimpl;
-    public String resultLogin(String username, String password, Model model){
+    public boolean resultLogin(String username, String password, Model model){
         for (Users users: userimpl.getListUsers() ) {
             if(username.equals(users.getUsername()) && password.equals(users.getPassword())){
                 model.addAttribute("username", users.getUsername());
-                return "view/admin/admin-manager";
+                return true;// "view/admin/admin-manager";
             }
         }
         model.addAttribute("msg", "Tên tài khoản hoặc mật khẩu không chính xác !");
-        return "view/admin/admin-login";
+        return false; //"view/admin/admin-login";
     }
 }

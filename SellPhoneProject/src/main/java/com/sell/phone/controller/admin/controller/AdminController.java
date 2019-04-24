@@ -18,6 +18,6 @@ public class AdminController {
     }
     @RequestMapping(value = "/admin-login", method = RequestMethod.POST)
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, Model model){
-        return adminServices.resultLogin(username, password, model);
+        return adminServices.resultLogin(username, password, model) ? "view/admin/admin-manager" : "view/admin/admin-login";
     }
 }
