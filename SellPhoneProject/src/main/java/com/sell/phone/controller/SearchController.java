@@ -15,7 +15,12 @@ public class SearchController {
 	@Autowired
 	Search search;
 	
-	@RequestMapping("/result")
+	@RequestMapping("{some}/result")
+	public String resultSearch() {
+		return "redirect:/result";
+	}
+	
+	@RequestMapping("result")
 	public String resultSearch(@RequestParam("search") String keyword, Model model) {
 		return search.PaginationSearch(keyword, model, 0);
 	}
