@@ -55,8 +55,9 @@
                     <c:forEach var="product" items="${listProductHightLight}">
                         <div class="col-md-4">
                             <div class="item text-center">
-                                <a href=""><img src="${ product.getImage() }" width="270px" height="150px"
-                                                alt="ảnh điện thoại"></a>
+                                <a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}"><img
+                                        src="${ product.getImage() }" width="270px" height="150px"
+                                        alt="ảnh điện thoại"></a>
                                 <p class="ten-san-pham">
                                     <b><a href="">${ product.getName() }</a></b>
                                 </p>
@@ -78,7 +79,8 @@
                     <c:forEach var="product" items="${ listProductNew }">
                         <div class="col-md-4">
                             <div class="item text-center">
-                                <a href=""><img src="${ product.getImage() }" alt="ảnh điện thoại"></a>
+                                <a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}"><img
+                                        src="${ product.getImage() }" alt="ảnh điện thoại"></a>
                                 <p class="ten-san-pham">
                                     <b><a href="">${ product.getName() }</a></b>
                                 </p>
