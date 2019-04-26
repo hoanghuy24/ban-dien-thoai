@@ -24,13 +24,13 @@ public class Search {
 		int numberOfPage = paginationService.page(getResultSearch(keyword), IDCategory.total);
 		if (size == 0) {
 			model.addAttribute("notResult", "Not Result");
-			return "view/ResultSearch";
+			return "ResultSearch";
 		}
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("result", "There " + size + " result for " + keyword);
 		model.addAttribute("listResult", pagination(page, keyword, IDCategory.total));
 		model.addAttribute("page", numberOfPage);
-		return "view/ResultSearch";
+		return "ResultSearch";
 	}
 
 	@SuppressWarnings("unchecked")

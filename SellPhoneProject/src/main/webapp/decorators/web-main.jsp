@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="dec"
+	uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +58,8 @@
 <body>
 </head>
 <header>
-	<c:set var="home" value="${ pageContext.request.contextPath }" scope="application">
+	<c:set var="home" value="${ pageContext.request.contextPath }"
+		scope="application">
 	</c:set>
 	<div class="container-fluid">
 		<div class="container">
@@ -81,7 +84,6 @@
 		data-toggle="collapse" data-target="#main-menu">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	</div>
 	<div class="container">
 		<!--menu-->
 		<div class="row">
@@ -99,7 +101,7 @@
 	</div>
 </header>
 
-<jsp:include page="${ param.view }"></jsp:include>
+<dec:body />
 
 <footer>
 	<div class="container">

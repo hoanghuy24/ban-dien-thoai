@@ -9,4 +9,5 @@ public interface UserProfileDAO {
     boolean deleteProfile(UserProfile profile);
     List<UserProfile> getResultList();
     UserProfile getUsersProfile(int id);
+  //  UserProfile getUsersProfileByName(String username);
 }
