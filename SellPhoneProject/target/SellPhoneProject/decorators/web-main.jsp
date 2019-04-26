@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +87,7 @@
     </div>
 </header>
 
-<jsp:include page="${ param.view }"></jsp:include>
+<dec:body/>
 
 <footer>
     <div class="container">
@@ -118,24 +119,5 @@
         <div class="container">2019 &copy;</div>
     </div>
 </footer>
-<script src="<c:url value="/resources/assets/js/jquery.3.2.1.min.js"/>"></script>
-<script src=
-                "<c:url value="/resources/assets/js/bootstrap.min.js"/>"></script>
-<!--  Charts Plugin -->
-<script src=
-                "<c:url value="/resources/assets/js/chartist.min.js"/>"></script>
-
-<!--  Notifications Plugin    -->
-<script src="<c:url value="/resources/assets/js/bootstrap-notify.js/"/>"></script>
-
-<%--<!--  Google Maps Plugin    -->--%>
-<%--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--%>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="<c:url value="/resources/assets/js/light-bootstrap-dashboard.js?v=1.4.0"/>"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src=
-                "<c:url value="/resources/assets/js/demo.js"/>"></script>
 </body>
 </html>

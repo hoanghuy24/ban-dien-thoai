@@ -14,10 +14,10 @@ public class MainController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		homeController.index(model);
-		return "view/Home";
+		return "/Home";
 	}
 	@RequestMapping("/show-info")
 	public String showinfo(){
-	    return "view/show-info";
+	    return "/show-info";
 	}
 }

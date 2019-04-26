@@ -139,7 +139,7 @@ CREATE TABLE `user_profile` (
   `last_name` varchar(30) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `other_detail` text,
-  `avatar` varchar(255) DEFAULT 'avatar.img',
+  `avatar` varchar(255) DEFAULT 'avatar.png',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -151,7 +151,7 @@ CREATE TABLE `user_profile` (
 
 LOCK TABLES `user_profile` WRITE;
 /*!40000 ALTER TABLE `user_profile` DISABLE KEYS */;
-INSERT INTO `user_profile` VALUES (2,2,'Tkw','hi',NULL,'123','avatar.img');
+INSERT INTO `user_profile` VALUES (2,2,'Tkw','hi',NULL,'123','avatar.png');
 /*!40000 ALTER TABLE `user_profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
