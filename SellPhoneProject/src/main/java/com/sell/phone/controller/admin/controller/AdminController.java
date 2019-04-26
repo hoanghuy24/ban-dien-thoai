@@ -1,5 +1,6 @@
 package com.sell.phone.controller.admin.controller;
 
+import com.sell.dao.admin.impl.UserProfileImpl;
 import com.sell.dao.impl.ProductImpl;
 import com.sell.entity.usermanager.Users;
 import com.sell.service.AdminServices;
@@ -17,21 +18,20 @@ public class AdminController {
     @Autowired
     AdminServices adminServices;
     @Autowired
-    ProductImpl product;
+    UserProfileImpl profile;
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(){
+    public String login() {
         return "/admin/admin-login";
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpServletRequest request){
-        if(request.getSession().getAttribute("user") != null) {
-            Users users = (Users) request.getSession().getAttribute("user");
-            model.addAttribute("user", product.getProduct(users.getId()));
-        }
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, Model model) {
         return adminServices.resultLogin(username, password, model) ? "redirect:/admin/dashboard" : "redirect:/admin/admin-login";
     }
+
     @RequestMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request) {
         request.getSession().removeAttribute("user");
         return "/admin/admin-login";
     }

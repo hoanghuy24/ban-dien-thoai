@@ -26,18 +26,20 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Company (disabled)</label>
-                                        <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
+                                        <input type="text" class="form-control" disabled placeholder="Company"
+                                               value="Creative Code Inc.">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                        <input type="text" class="form-control" placeholder="Username"
+                                               value="michael23">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
+                                        <label>Email address</label>
                                         <input type="email" class="form-control" placeholder="Email">
                                     </div>
                                 </div>
@@ -62,7 +64,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                        <input type="text" class="form-control" placeholder="Home Address"
+                                               value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +95,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>About Me</label>
-                                        <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                        <textarea rows="5" class="form-control"
+                                                  placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -106,14 +110,16 @@
             <div class="col-md-4">
                 <div class="card card-user">
                     <div class="image">
-                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
+                             alt="..."/>
                     </div>
                     <div class="content">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src=<c:url value="/resources/avatar/${ sessionScope.user.avatar}"/> alt="..."/>
+                                <img class="avatar border-gray" src=
+                                <c:url value="/resources/avatar/${ sessionScope.user.avatar}"/> alt="..."/>
 
-                                <h4 class="title">${ sessionScope.user.firstName } ${ sessionScope.user.lastName} <br />
+                                <h4 class="title">${ sessionScope.user.firstName } ${ sessionScope.user.lastName} <br/>
                                     <small>@${ sessionScope.user.user_id.username}</small>
                                 </h4>
                             </a>

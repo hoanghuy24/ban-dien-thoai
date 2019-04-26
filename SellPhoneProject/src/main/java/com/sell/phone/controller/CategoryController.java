@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sell.service.CategoryService;
 import com.sell.service.IDCategory;
@@ -96,7 +97,11 @@ public class CategoryController {
     
 
     @RequestMapping("/{category}/{code}-{id}")
-    public String show(@PathVariable("id") int id, Model model) {
+    public String show(@PathVariable("id") int id, Model model, @RequestParam(name="error", required = false) String error) {
+		System.out.println("Come");
+		if(error != null) {
+			model.addAttribute("error", error);
+		}
         model.addAttribute("product", productImpl.getProduct(id));
         return "/show-info";
     }

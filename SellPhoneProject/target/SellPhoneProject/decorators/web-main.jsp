@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD:SellPhoneProject/src/main/webapp/decorators/web-main.jsp
          pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
-=======
-	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> fc4710e5dbdf78c6e1797536452a12c65c018b05:SellPhoneProject/src/main/webapp/WEB-INF/header.jsp
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,8 +133,6 @@
 		<div class="container">2019 &copy;</div>
 	</div>
 </footer>
-<<<<<<< HEAD:SellPhoneProject/src/main/webapp/decorators/web-main.jsp
-=======
 <script src="<c:url value="/resources/assets/js/jquery.3.2.1.min.js"/>"></script>
 <script src="<c:url value="/resources/assets/js/bootstrap.min.js"/>"></script>
 <!--  Charts Plugin -->
@@ -158,6 +150,5 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="<c:url value="/resources/assets/js/demo.js"/>"></script>
->>>>>>> fc4710e5dbdf78c6e1797536452a12c65c018b05:SellPhoneProject/src/main/webapp/WEB-INF/header.jsp
 </body>
 </html>
