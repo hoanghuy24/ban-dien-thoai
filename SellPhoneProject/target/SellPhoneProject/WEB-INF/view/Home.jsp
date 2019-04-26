@@ -66,7 +66,7 @@
                                     Giá: <span class="price">${ product.getPrice() - product.getDiscount() }</span>
                                 </p>
                                 <c:if test="${product.getDiscount() > 0}">
-                                    <c:set var="sale" value="${ (product.getDiscount() * 100)/product.getPrice()}"/>
+                                    <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
                                     <div class="sale">-${ Math.round(sale) }%</div>
                                 </c:if>
                             </div>
@@ -89,7 +89,7 @@
                                     Giá: <span class="price">${ product.getPrice() - product.getDiscount() }</span>
                                 </p>
                                 <c:if test="${product.getDiscount() > 0}">
-                                    <c:set var="sale" value="${ (product.getDiscount() * 100)/product.getPrice()}"/>
+                                    <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
                                     <div class="sale">-${ Math.round(sale) }%</div>
                                 </c:if>
                             </div>

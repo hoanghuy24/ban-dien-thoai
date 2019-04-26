@@ -7,39 +7,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be58c753-febb-4878-9d10-36f84af68a8b" name="Default Changelist" comment="Revert &quot;test&quot;&#10;&#10;This reverts commit 7c18d6d1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sell/interceptor/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/SellPhoneProject_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SellPhoneProject_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UsersImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UsersImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/service/AdminServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/service/AdminServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/configs/spring-manager-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/configs/springDispatcherServlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/configs/springDispatcherServlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sell/service/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sell/service/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Dump20190423.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MySQL.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tesst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Category.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/admin-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/admin-manager.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/map.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/map.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/show-info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/show-info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/decorators/admin-main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/decorators/admin-main.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/decorators/web-main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/decorators/web-main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/phone/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/phone/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/phone/controller/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/phone/controller/SearchController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/phone/controller/admin/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/phone/controller/admin/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/service/AdminServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/classes/com/sell/service/AdminServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/configs/spring-manager-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/configs/springDispatcherServlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/configs/springDispatcherServlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/Home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/admin-login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/show-info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/show-info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/decorators/web-main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/decorators/web-main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sell/phone/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sell/phone/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sell/phone/controller/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sell/phone/controller/SearchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/admin-manager.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/map.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/map.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/WEB-INF/view/admin/user.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SellPhoneProject/decorators/admin-main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SellPhoneProject/decorators/admin-main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Dump20190423.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MySQL.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sell/phone/controller/admin/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sell/phone/controller/admin/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sell/service/AdminServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sell/service/AdminServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tesst.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/SellPhone/SellPhoneProject/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/SellPhone/SellPhoneProject/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/SellPhone/SellPhoneProject/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/SellPhone/SellPhoneProject/pom.xml" afterDir="false" />
     </list>
     <list id="02e6d8a8-5cc0-4a3c-a9fe-70ea70357839" name="Revert &quot;test&quot;" comment="Revert &quot;test&quot;&#10;&#10;This reverts commit 7c18d6d1" />
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -56,26 +60,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/ManagerController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/UsersDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="187">
+              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#933#934#0" expanded="true" />
-                <element signature="e#974#975#0" expanded="true" />
-                <element signature="e#1027#1028#0" expanded="true" />
-                <element signature="e#1062#1063#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UsersImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+            <state relative-caret-position="324">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#changeStatusUsers#0;class#UsersImpl#0" />
+                <element signature="method#changePassword#0;class#UsersImpl#0" />
+                <element signature="e#0#10#0" expanded="true" />
+                <element signature="method#getUsers#0;class#UsersImpl#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Users.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-50">
+              <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/phone/controller/BuyProductController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -83,9 +108,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/UserProfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="48" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="48" />
+            <state relative-caret-position="340">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
+                <element signature="e#792#793#0" expanded="true" />
+                <element signature="e#830#831#0" expanded="true" />
                 <element signature="e#983#984#0" expanded="true" />
                 <element signature="e#1013#1014#0" expanded="true" />
               </folding>
@@ -94,13 +121,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/service/AdminServices.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/UserProfileDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="36" column="76" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="36" selection-end-column="76" />
+            <state relative-caret-position="204">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#resultLogin#0;class#AdminServices#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UserProfileImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getResultList#0;class#UserProfileImpl#0" />
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,9 +197,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sell/dao/admin/UsersDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Users.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UserProfileImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UsersImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/admin-manager.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/UserProfile.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/manager/user.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/header.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -169,12 +207,17 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/admin-login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sell/interceptor/Logged.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/configs/springDispatcherServlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sell/interceptor/Login.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sell/service/AdminServices.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/dashboard.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/map.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/decorators/admin-main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/UserProfile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UsersImpl.java" />
       </list>
     </option>
   </component>
@@ -192,7 +235,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -246,6 +289,54 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="usermanager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -263,7 +354,22 @@
               <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SellPhoneProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="decorators" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SellPhoneProject" type="b2602c69:ProjectViewProjectNode" />
@@ -303,7 +409,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -329,7 +435,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.UsersImpl">
     <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
       <option name="DOC_BASE" value="" />
       <option name="CONTEXT_PATH" value="" />
@@ -338,6 +444,19 @@
       <option name="ADMIN_PORT" value="8005" />
       <option name="VM_OPTIONS" value="" />
       <option name="PASS_PARENT_ENV_OPTIONS" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsersImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sell.dao.admin.impl.UsersImpl" />
+      <module name="SellPhoneProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sell.dao.admin.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -476,6 +595,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat 9.0.17" />
+      <item itemvalue="Application.UsersImpl" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UsersImpl" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -499,7 +627,7 @@
       <workItem from="1556248032197" duration="99000" />
       <workItem from="1556248173236" duration="897000" />
       <workItem from="1556249190403" duration="14485000" />
-      <workItem from="1556268386300" duration="3092000" />
+      <workItem from="1556268386300" duration="5922000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;test&quot;&#10;&#10;This reverts commit 7c18d6d1">
       <created>1556005416219</created>
@@ -517,13 +645,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64146000" />
+    <option name="totallyTimeSpent" value="66976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4957806" visible="true" weight="0.25637585" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4957806" visible="true" weight="0.25637585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -533,7 +661,7 @@
       <window_info id="Web" order="7" sideWeight="0.5042194" side_tool="true" weight="0.23927614" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -623,8 +751,6 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/viewhtml/view/vietpro-shop-k160.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/viewhtml/view/js-buoi-1.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -706,16 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/UsersDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/impl/CategoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -739,21 +855,6 @@
           <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UsersImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="84" column="7" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#changeStatusUsers#0;class#UsersImpl#0" />
-            <element signature="method#changePassword#0;class#UsersImpl#0" />
-            <element signature="method#getListUsers#0;class#UsersImpl#0" />
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="method#getUsers#0;class#UsersImpl#0" />
           </folding>
         </state>
       </provider>
@@ -790,42 +891,12 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/springDispatcherServlet.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/manager/user.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/header.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/UserProfileDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/decorators/admin-main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3858" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/dashboard.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/map.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/show-info.jsp">
       <provider selected="true" editor-type-id="text-editor">
@@ -848,13 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/admin-manager.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/decorators/web-main.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1452">
@@ -863,20 +927,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/configs/spring-manager-servlet.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UserProfileImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#deleteProfile#0;class#UserProfileImpl#0" />
-            <element signature="method#getResultList#0;class#UserProfileImpl#0" />
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="method#getUsersProfile#0;class#UserProfileImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -926,13 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/interceptor/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -943,20 +986,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/service/AdminServices.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="205">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#resultLogin#0;class#AdminServices#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/admin-manager.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/dashboard.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/map.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/ManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="-33">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#933#934#0" expanded="true" />
@@ -967,32 +1046,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/service/AdminServices.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/phone/controller/BuyProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="36" column="76" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="36" selection-end-column="76" />
+        <state relative-caret-position="170">
+          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/phone/controller/admin/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#resultLogin#0;class#AdminServices#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/decorators/admin-main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-407">
+          <caret line="116" column="61" lean-forward="true" selection-start-line="116" selection-start-column="61" selection-end-line="116" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/UsersDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/DBSELL.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="65" lean-forward="true" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UserProfileImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getResultList#0;class#UserProfileImpl#0" />
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/UserProfileDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/UserProfile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="48" />
+        <state relative-caret-position="340">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
             <element signature="e#983#984#0" expanded="true" />
             <element signature="e#1013#1014#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/user.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/entity/usermanager/Users.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        <state relative-caret-position="-50">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sell/dao/admin/impl/UsersImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#changeStatusUsers#0;class#UsersImpl#0" />
+            <element signature="method#changePassword#0;class#UsersImpl#0" />
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="method#getUsers#0;class#UsersImpl#0" />
+          </folding>
         </state>
       </provider>
     </entry>

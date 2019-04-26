@@ -175,7 +175,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/logout">
                                 <p>Log out</p>
                             </a>
                         </li>

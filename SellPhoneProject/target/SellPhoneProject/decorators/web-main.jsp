@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="dec"
+	uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,7 +57,8 @@
 <body>
 </head>
 <header>
-	<c:set var="home" value="${ pageContext.request.contextPath }" scope="application">
+	<c:set var="home" value="${ pageContext.request.contextPath }"
+		scope="application">
 	</c:set>
 	<div class="container-fluid">
 		<div class="container">
@@ -82,7 +83,6 @@
 		data-toggle="collapse" data-target="#main-menu">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	</div>
 	<div class="container">
 		<!--menu-->
 		<div class="row">
@@ -100,7 +100,7 @@
 	</div>
 </header>
 
-<dec:body/>
+<dec:body />
 
 <footer>
 	<div class="container">

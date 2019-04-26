@@ -2,6 +2,7 @@ package com.sell.dao.admin.impl;
 
 import com.sell.dao.admin.UsersDAO;
 import com.sell.entity.Cart;
+import com.sell.entity.usermanager.UserProfile;
 import com.sell.entity.usermanager.Users;
 import com.sell.hibernate.HibernateUI;
 import org.hibernate.Session;
@@ -56,11 +57,13 @@ public class UsersImpl implements UsersDAO {
 	public boolean registerUsers(Users users) {
 		Session session = factory.openSession();
 		Cart cart = new Cart("", users);
+		UserProfile profile = new UserProfile(users);
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
 			session.save(users);
 			session.save(cart);
+			session.save(profile);
 			transaction.commit();
 			return true;
 		} catch (Exception e) {
@@ -83,4 +86,9 @@ public class UsersImpl implements UsersDAO {
 		return session.find(Users.class, id);
 	}
 
+//	public static void main(String[] args) {
+//		UsersImpl users = new UsersImpl();
+//		users.registerUsers(new Users("huyabc", "2403"));
+//		System.out.println("OK");
+//	}
 }

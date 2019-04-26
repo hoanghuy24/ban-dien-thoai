@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>MAP</title>
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */

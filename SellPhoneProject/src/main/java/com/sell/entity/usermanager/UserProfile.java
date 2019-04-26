@@ -28,6 +28,10 @@ public class UserProfile {
     @Column(name = "about_me")
     private String aboutMe;
 
+    public UserProfile(Users user_id) {
+        this.user_id = user_id;
+    }
+
     public String getAvatar() {
         return avatar;
     }

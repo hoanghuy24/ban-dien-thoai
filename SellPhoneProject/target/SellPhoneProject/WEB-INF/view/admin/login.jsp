@@ -9,7 +9,7 @@
          pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Login - ${ pageContext.request.contextPath}</title>
     <meta charset="utf-8">
     <style>
 
