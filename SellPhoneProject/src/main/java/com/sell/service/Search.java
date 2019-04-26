@@ -1,6 +1,7 @@
 package com.sell.service;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.persistence.Query;
 
@@ -71,11 +72,6 @@ public class Search {
 	 */
 	
 	public static void main(String[] args) {
-		
-		String a = "hahha   ahsaus  asa a";
-		String b = "";
-		a.replaceAll("-", " ");
-		System.out.println(a);
-		
+		System.out.println(Pattern.matches("[^0-9]", "2"));
 	}
 }
