@@ -32,15 +32,16 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Username</label>
+                                        <label>USERNAME</label>
                                         <input type="text" class="form-control" placeholder="Username"
-                                               value="michael23">
+                                               readonly
+                                               value="${ user.user_id.username}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="email" value="${ user.email}" class="form-control" placeholder="Email">
                                     </div>
                                 </div>
                             </div>
@@ -49,13 +50,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                        <input type="text" class="form-control" value="${ user.firstName}" placeholder="Company" value="Mike">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                        <input type="text" class="form-control" value="${ user.lastName}" placeholder="Last Name" value="Andrew">
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +66,7 @@
                                     <div class="form-group">
                                         <label>Address</label>
                                         <input type="text" class="form-control" placeholder="Home Address"
-                                               value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                               value="${ user.address}">
                                     </div>
                                 </div>
                             </div>
@@ -74,19 +75,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>City</label>
-                                        <input type="text" class="form-control" placeholder="City" value="Mike">
+                                        <input type="text" class="form-control" placeholder="City" value="${ user.city}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                                        <input type="text" class="form-control" placeholder="Country" value="${ user.country}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Postal Code</label>
-                                        <input type="number" class="form-control" placeholder="ZIP Code">
+                                        <label>Zip Code</label>
+                                        <input type="number" class="form-control" value="${ user.zipCode}" placeholder="ZIP Code">
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +97,7 @@
                                     <div class="form-group">
                                         <label>About Me</label>
                                         <textarea rows="5" class="form-control"
-                                                  placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                                  placeholder="Here can be your description" value="Mike">${ user.aboutMe}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -117,14 +118,14 @@
                         <div class="author">
                             <a href="#">
                                 <img class="avatar border-gray" src=
-                                <c:url value="/resources/avatar/${ sessionScope.user.avatar}"/> alt="..."/>
+                                <c:url value="/resources/avatar/${ user.avatar}"/> alt="..."/>
 
-                                <h4 class="title">${ sessionScope.user.firstName } ${ sessionScope.user.lastName} <br/>
-                                    <small>@${ sessionScope.user.user_id.username}</small>
+                                <h4 class="title">${ user.firstName } ${ user.lastName} <br/>
+                                    <small>@${ user.user_id.username}</small>
                                 </h4>
                             </a>
                         </div>
-                        <p class="description text-center">${ sessionScope.user.aboutMe}
+                        <p class="description text-center">${user.aboutMe}
                         </p>
                     </div>
                     <hr>

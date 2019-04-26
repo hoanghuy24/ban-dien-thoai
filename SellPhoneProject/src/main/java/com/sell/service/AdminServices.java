@@ -5,7 +5,7 @@ import com.sell.dao.admin.impl.UsersImpl;
 import com.sell.entity.usermanager.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,16 +16,25 @@ public class AdminServices {
     UsersImpl userimpl;
     @Autowired
     HttpServletRequest request;
-    public boolean resultLogin(String username, String password, Model model){
-        for (Users users: userimpl.getListUsers() ) {
-            if(username.equals(users.getUsername()) && password.equals(users.getPassword())){
-         //       model.addAttribute("username", users);
+    @Autowired
+    UserProfileImpl profile;
+    public String resultLogin(String username, String password, RedirectAttributes redirectAttributes) {
+        for (Users users : userimpl.getListUsers()) {
+            if (username.equals(users.getUsername()) && password.equals(users.getPassword())) {
+                //       model.addAttribute("username", users);
                 HttpSession session = request.getSession();
-                session.setAttribute("user", users);
-                return true;
+                session.setAttribute("user_id", users.getId());
+                return "redirect:/admin/dashboard";
             }
         }
-        model.addAttribute("msg", "Tên tài khoản hoặc mật khẩu không chính xác !");
-        return false;
+        // fail
+        redirectAttributes.addAttribute("msg", "Tên tài khoản hoặc mật khẩu không chính xác !");
+        return "redirect:/login";
+    }
+
+    public String getProfileSession(RedirectAttributes redirectAttributes){
+        int id = (Integer) request.getSession().getAttribute("user_id");
+        redirectAttributes.addAttribute("user",profile.getUsersProfile(id));
+        return "redirect:/user";
     }
 }
