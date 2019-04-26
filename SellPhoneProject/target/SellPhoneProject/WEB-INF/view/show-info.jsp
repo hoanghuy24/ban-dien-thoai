@@ -24,7 +24,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
                     <li class="breadcrumb-item"><a
-                            href="/SellPhoneProject_war/${ product.getCategory().getCategory().toLowerCase()}">${ product.getCategory().getCategory()}</a>
+                            href="${ product.getCategory().getCategory().toLowerCase()}">${ product.getCategory().getCategory()}</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">${ product.getName()}</li>
                 </ol>
