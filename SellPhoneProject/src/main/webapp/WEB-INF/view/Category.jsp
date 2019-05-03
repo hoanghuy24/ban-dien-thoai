@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Sản phẩm ${ category }</title>
 </head>
 <body>
 <div class="container">
@@ -19,10 +19,10 @@
                                 src="${ product.getImage() }" width="270px" height="150px"
                                 alt="ảnh điện thoại"></a>
                         <p class="ten-san-pham">
-                            <b><a href="">${ product.getName() }</a></b>
+                            <b><a href="${category.toLowerCase()}/${ product.getCode()}-${ product.id}">${ product.getName() }</a></b>
                         </p>
                         <p>
-                            Giá: <span class="price">${ product.getPrice() - product.getDiscount() }</span>
+                            Giá: <span class="price">${ product.getFormatDiscount() }</span>
                         </p>
                         <c:if test="${product.getDiscount() > 0}">
                             <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
@@ -33,11 +33,21 @@
             </c:forEach>
         </div>
     </section>
-    <c:if test="${ page > 1 }">
-    	<c:forEach var="page" begin="1" end="${ page }">
-    		<a href="${ category }-page-${ page }">Page ${ page }</a>
-    	</c:forEach>
+    <div class="btn-group mb-2" role="group">
+        <c:if test="${ page > 1 }">
+            <c:forEach var="page" begin="1" end="${ page }">
+                <a class="btn btn-secondary" id="page" href="${ category }-page-${ page }">${ page }</a>
+            </c:forEach>
+        </c:if>
+    </div>
+    <c:if test="${pageID == null}">
+        ${ pageID = 1}
     </c:if>
+    <script>
+        $(function () {
+            $("#page:nth-child(${pageID})").addClass("active-page");
+        });
+    </script>
 </div>
 </body>
 </html>

@@ -37,6 +37,4 @@ public class BuyProductService {
         model.addAttribute("users", users);
         return "Cart/cart";
     }
-
-
 }

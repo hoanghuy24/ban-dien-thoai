@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title><dec:title default="SellPhone"/></title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,36 +23,6 @@
 <script src="${ jquery }"></script>
 <c:url var="bootstrap" value="/resources/js/bootstrap.js"></c:url>
 <script src="${ bootstrap }"></script>
-
-<!-- Manager -->
-
-<!-- Bootstrap core CSS     -->
-<link href="<c:url value="/resources/assets/css/bootstrap.min.css"/>"
-	rel="stylesheet" />
-
-<!-- Animation library for notifications   -->
-<link href="<c:url value="/resources/assets/css/animate.min.css"/>"
-	rel="stylesheet" />
-
-<!--  Light Bootstrap Table core CSS    -->
-<link
-	href="<c:url value="/resources/assets/css/light-bootstrap-dashboard.css?v=1.4.0"/>"
-	rel="stylesheet" />
-
-
-<!--  CSS for Demo Purpose, don't include it in your project     -->
-<link href="<c:url value="/resources/assets/css/demo.css" />"
-	rel="stylesheet" />
-
-
-<!--     Fonts and icons     -->
-<link
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-	rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300'
-	rel='stylesheet' type='text/css'>
-<link href="<c:url value="/resources/assets/css/pe-icon-7-stroke.css"/>"
-	rel="stylesheet" />
 </head>
 <body>
 </head>
@@ -133,22 +103,5 @@
 		<div class="container">2019 &copy;</div>
 	</div>
 </footer>
-<script src="<c:url value="/resources/assets/js/jquery.3.2.1.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/bootstrap.min.js"/>"></script>
-<!--  Charts Plugin -->
-<script src="<c:url value="/resources/assets/js/chartist.min.js"/>"></script>
-
-<!--  Notifications Plugin    -->
-<script src="<c:url value="/resources/assets/js/bootstrap-notify.js/"/>"></script>
-
-<%--<!--  Google Maps Plugin    -->--%>
-<%--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--%>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script
-	src="<c:url value="/resources/assets/js/light-bootstrap-dashboard.js?v=1.4.0"/>"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="<c:url value="/resources/assets/js/demo.js"/>"></script>
 </body>
 </html>

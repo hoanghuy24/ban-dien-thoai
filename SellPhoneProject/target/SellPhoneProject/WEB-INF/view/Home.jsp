@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Trang chủ SellPhone</title>
 </head>
 <body>
 
@@ -60,10 +60,10 @@
                                         src="${ product.getImage() }" width="270px" height="150px"
                                         alt="ảnh điện thoại"></a>
                                 <p class="ten-san-pham">
-                                    <b><a href="">${ product.getName() }</a></b>
+                                    <b><a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}">${ product.getName() }</a></b>
                                 </p>
                                 <p>
-                                    Giá: <span class="price">${ product.getPrice() - product.getDiscount() }</span>
+                                    Giá: <span class="price">${ product.getFormatDiscount() }</span>
                                 </p>
                                 <c:if test="${product.getDiscount() > 0}">
                                     <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
@@ -83,10 +83,10 @@
                                 <a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}"><img
                                         src="${ product.getImage() }" alt="ảnh điện thoại"></a>
                                 <p class="ten-san-pham">
-                                    <b><a href="">${ product.getName() }</a></b>
+                                    <b><a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}">${ product.getName() }</a></b>
                                 </p>
                                 <p>
-                                    Giá: <span class="price">${ product.getPrice() - product.getDiscount() }</span>
+                                    Giá: <span class="price">${ product.getFormatDiscount() }</span>
                                 </p>
                                 <c:if test="${product.getDiscount() > 0}">
                                     <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>

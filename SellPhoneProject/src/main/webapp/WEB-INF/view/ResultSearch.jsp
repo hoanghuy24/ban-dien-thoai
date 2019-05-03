@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Kết quả tìm kiếm cho ${ keyword }</title>
 </head>
 <body>
 <div class="container">
@@ -41,21 +41,32 @@
                             <b><a href="">${ product.getName() }</a></b>
                         </p>
                         <p>
-                            Giá: <span class="price">${ product.getPrice() }</span>
+                            Giá: <span class="price">${ product.getFormatDiscount() }</span>
                         </p>
+                        <c:if test="${product.getDiscount() > 0}">
+                            <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
+                            <div class="sale">-${ Math.round(sale) }%</div>
+                        </c:if>
                     </div>
                 </div>
             </c:forEach>
         </div>
     </section>
-    <c:if test="${ page > 1 }">
-        <c:forEach var="page" begin="1" end="${ page }">
-            <form action="result-page-${ page }">
-                <input type="hidden" value="${ keyword }" name="keyword"> <input
-                    type="submit" value="Page ${ page }">
-            </form>
-        </c:forEach>
-    </c:if>
+    <div class="btn-group mb-2" role="group">
+        <c:if test="${ page > 1 }">
+            <c:forEach var="page" begin="1" end="${ page }">
+                <form action="result-page-${ page }">
+                    <input type="hidden" value="${ keyword }" name="keyword">
+                    <input class="btn btn-secondary" id="page" type="submit" value="${ page }">
+                </form>
+            </c:forEach>
+        </c:if>
+    </div>
+    <script>
+        $(function () {
+            $("#page:nth-child(${pageID})").addClass("active-page");
+        });
+    </script>
 </div>
 </body>
 </html>
