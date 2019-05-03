@@ -13,29 +13,30 @@ import com.sell.dao.admin.impl.UsersImpl;
 import com.sell.dao.impl.ProductImpl;
 import com.sell.entity.Product;
 import com.sell.entity.usermanager.Users;
+
 @Service
 public class BuyProductService {
 
-	@Autowired
-	ProductImpl productImpl;
-	@Autowired
-	UsersImpl usersImpl;
-	public String checkLogin(HttpServletRequest request, int id, RedirectAttributes redirectAttributes, Model model) {
-		System.out.println("this is phone check id");
-		Users users = usersImpl.getUsers(2);
-		HttpSession httpSession = request.getSession();
-		httpSession.setAttribute("user_id", users.getId());
-		Product product = productImpl.getProduct(id);
-		// httpSession.setAttribute("user", product);
-		if (httpSession.getAttribute("user_id") == null) {
-			//redirectAttributes.addAttribute(product);
-			redirectAttributes.addAttribute("error", "Chua Login");
-			System.out.println("redirect");
-			return "redirect:/"+product.getCategory().getCategory()+"/"+product.getCode()+"-"+id;
-		}
-		model.addAttribute("users", users);
-		return "Cart/cart"; 
-	}
-	
-	
+    @Autowired
+    ProductImpl productImpl;
+    @Autowired
+    UsersImpl usersImpl;
+
+    public String checkLogin(HttpServletRequest request, int id, RedirectAttributes redirectAttributes, Model model) {
+        System.out.println("this is phone check id");
+        HttpSession httpSession = request.getSession();
+        Product product = productImpl.getProduct(id);
+        // httpSession.setAttribute("user", product);
+        if (httpSession.getAttribute("user_id") == null) {
+            //redirectAttributes.addAttribute(product);
+            redirectAttributes.addAttribute("error", "Chua Login");
+            System.out.println("redirect");
+            return "redirect:/" + product.getCategory().getCategory() + "/" + product.getCode() + "-" + id;
+        }
+        Users users = usersImpl.getUsers(id);
+        model.addAttribute("users", users);
+        return "Cart/cart";
+    }
+
+
 }
