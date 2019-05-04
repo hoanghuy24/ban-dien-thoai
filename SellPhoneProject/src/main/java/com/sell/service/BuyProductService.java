@@ -16,25 +16,39 @@ import com.sell.entity.usermanager.Users;
 @Service
 public class BuyProductService {
 
+	@Autowired
+	ProductImpl productImpl;
+	@Autowired
+	UsersImpl usersImpl;
 
-    @Autowired
-    ProductImpl productImpl;
-    @Autowired
-    UsersImpl usersImpl;
+	public boolean checkLogin(HttpServletRequest request, int id, RedirectAttributes redirectAttributes, Model model) {
+		System.out.println("this is phone check id");
+		HttpSession httpSession = request.getSession();
+		if (httpSession.getAttribute("user_id") == null) {
+			redirectAttributes.addAttribute("error", "Please Login");
+			System.out.println("redirect");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public void cart(int id, Model model, HttpServletRequest request) {
+		HttpSession httpSession = request.getSession();
+		Integer id_user = (Integer) httpSession.getAttribute("user_id");
+		Users users = usersImpl.getUsers(id_user);
+		model.addAttribute("users",users);
+	}
 
-    public String checkLogin(HttpServletRequest request, int id, RedirectAttributes redirectAttributes, Model model) {
-        System.out.println("this is phone check id");
-        HttpSession httpSession = request.getSession();
-        Product product = productImpl.getProduct(id);
-        // httpSession.setAttribute("user", product);
-        if (httpSession.getAttribute("user_id") == null) {
-            //redirectAttributes.addAttribute(product);
-            redirectAttributes.addAttribute("error", "Chua Login");
-            System.out.println("redirect");
-            return "redirect:/" + product.getCategory().getCategory() + "/" + product.getCode() + "-" + id;
-        }
-        Users users = usersImpl.getUsers(id);
-        model.addAttribute("users", users);
-        return "Cart/cart";
-    }
+	public boolean check(Users users, HttpServletRequest request) {
+		for (Users u : usersImpl.getListUsers()) {
+			if (u.getUsername().equalsIgnoreCase(users.getUsername())
+					&& u.getPassword().equalsIgnoreCase(users.getPassword())) {
+				HttpSession session = request.getSession();
+				session.setAttribute("user_id", u.getId());
+				return true;
+			}
+		}
+		return false;
+	}
 }

@@ -98,7 +98,10 @@
 						</c:choose>
 						<label>Mô tả: </label><span> ${ product.getDescription()}</span> <a
 							href="check-${ product.id }" class="btn btn-outline-primary buynow">Mua ngay</a>
-							${ error }
+							<c:if test='${ error == "Please Login" }'>
+								${ error }
+								<a href="${ pageContext.request.contextPath }/login-buy-${ product.id}">Đăng nhập tại đây</a>
+							</c:if>
 					</div>
 
 					<div class="col-sm-4">

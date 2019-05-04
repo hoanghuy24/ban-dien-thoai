@@ -147,6 +147,12 @@ public class UserProfile {
 	public void setOtherDetail(String otherDetail) {
 		this.otherDetail = otherDetail;
 	}
+	
+
+	public UserProfile(Users user_id) {
+		super();
+		this.user_id = user_id;
+	}
 
 	public UserProfile() {
 	}
