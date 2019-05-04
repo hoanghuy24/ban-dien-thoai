@@ -3,7 +3,6 @@ package com.sell.service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -17,30 +16,25 @@ import com.sell.entity.usermanager.Users;
 @Service
 public class BuyProductService {
 
-	@Autowired
-	ProductImpl productImpl;
-	@Autowired
-	UsersImpl usersImpl;
 
-	public String checkLogin(HttpServletRequest request, int id, RedirectAttributes redirectAttributes, Model model) {
+    @Autowired
+    ProductImpl productImpl;
+    @Autowired
+    UsersImpl usersImpl;
 
-		System.out.println("this is phone check id");
-		HttpSession httpSession = request.getSession();
-		if (httpSession.getAttribute("user_id") == null) {
-			Product product = productImpl.getProduct(id);
-			//redirectAttributes.addAttribute(product);
-			redirectAttributes.addAttribute("error", "Chua Login");
-			System.out.println("redirect");
-			return "redirect:/" + product.getCategory().getCategory() + "/" + product.getCode() + "-" + id;
-		}
-
-		Integer user_id = (Integer) httpSession.getAttribute("user_id");
-
-		System.out.println(user_id);
-		Users users = usersImpl.getUsers(user_id);
-		model.addAttribute("users", users);
-
-		return "Cart/cart";
-	}
-
+    public String checkLogin(HttpServletRequest request, int id, RedirectAttributes redirectAttributes, Model model) {
+        System.out.println("this is phone check id");
+        HttpSession httpSession = request.getSession();
+        Product product = productImpl.getProduct(id);
+        // httpSession.setAttribute("user", product);
+        if (httpSession.getAttribute("user_id") == null) {
+            //redirectAttributes.addAttribute(product);
+            redirectAttributes.addAttribute("error", "Chua Login");
+            System.out.println("redirect");
+            return "redirect:/" + product.getCategory().getCategory() + "/" + product.getCode() + "-" + id;
+        }
+        Users users = usersImpl.getUsers(id);
+        model.addAttribute("users", users);
+        return "Cart/cart";
+    }
 }

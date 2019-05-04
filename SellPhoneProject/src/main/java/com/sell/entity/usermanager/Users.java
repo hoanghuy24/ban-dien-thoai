@@ -22,6 +22,8 @@ public class Users {
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_user")
 	List<Cart> listCart;
+	@OneToOne(mappedBy = "user_id")
+	UserProfile userProfile;
 
 	public Users(String username, String password) {
 		this.username = username;
@@ -32,6 +34,14 @@ public class Users {
 		this.username = username;
 		this.password = password;
 		this.id_role = id_role;
+	}
+
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
 	}
 
 	public int getStatus() {

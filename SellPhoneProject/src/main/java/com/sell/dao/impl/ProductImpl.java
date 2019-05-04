@@ -73,7 +73,7 @@ public class ProductImpl implements ProductDAO {
 	// lấy số product mới nhất
 	public List<Product> getProductNew(int number) {
 		Session session = HibernateUI.getSessionFactory().openSession();
-		Query query = session.createQuery("From " + Product.class.getName() +" as p order by p.id ");
+		Query query = session.createQuery("From " + Product.class.getName() +" as p order by p.id  desc");
 		query.setMaxResults(number);
 		@SuppressWarnings("unchecked")
 		List<Product> list = query.getResultList();

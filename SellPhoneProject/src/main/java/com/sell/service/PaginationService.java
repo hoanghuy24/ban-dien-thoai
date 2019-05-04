@@ -39,6 +39,7 @@ public class PaginationService {
 		Category category = session.get(Category.class, idCategory);
 		session.close();
 		model.addAttribute("page", page(getListProductById(idCategory), total));
+		model.addAttribute("pageID", page);
 		model.addAttribute("category", category.getCategory());
 		model.addAttribute("product", pagination(page, idCategory, total));
 	}

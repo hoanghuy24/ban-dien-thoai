@@ -74,7 +74,7 @@ public class CategoryController {
     	categoryService.sony(model, page);
         return "/Category";
     }
-    @RequestMapping("samsung-page-{i}")
+    @RequestMapping("SamSung-page-{i}")
     public String SamSungPage(@PathVariable("i") int page, Model model) {
     	categoryService.samsung(model, page);
         return "/Category";

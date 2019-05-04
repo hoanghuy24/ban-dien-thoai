@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: HoangHuy
@@ -21,7 +22,7 @@
                         <h4 class="title">Edit Profile</h4>
                     </div>
                     <div class="content">
-                        <form>
+                        <form:form modelAttribute="user" action="update-profile" method="post">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
@@ -33,15 +34,15 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>USERNAME</label>
-                                        <input type="text" class="form-control" placeholder="Username"
-                                               readonly
-                                               value="${ user.user_id.username}">
+                                        <form:input type="text" class="form-control" placeholder="Username"
+                                               readonly = "true"
+                                               path="user_id.username"/>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Email address</label>
-                                        <input type="email" value="${ user.email}" class="form-control" placeholder="Email">
+                                        <form:input type="email" path="email" class="form-control" placeholder="Email"/>
                                     </div>
                                 </div>
                             </div>
@@ -50,13 +51,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" value="${ user.firstName}" placeholder="Company" value="Mike">
+                                        <form:input type="text" class="form-control" path="firstName" placeholder="First Name"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" value="${ user.lastName}" placeholder="Last Name" value="Andrew">
+                                        <form:input type="text" class="form-control" path="lastName" placeholder="Last Name"/>
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +66,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" placeholder="Home Address"
-                                               value="${ user.address}">
+                                        <form:input type="text" class="form-control" placeholder="Home Address"
+                                               path="address"/>
                                     </div>
                                 </div>
                             </div>
@@ -75,19 +76,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>City</label>
-                                        <input type="text" class="form-control" placeholder="City" value="${ user.city}">
+                                        <form:input type="text" class="form-control" placeholder="City" path="city"/>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" placeholder="Country" value="${ user.country}">
+                                        <form:input type="text" class="form-control" placeholder="Country" path="country"/>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Zip Code</label>
-                                        <input type="number" class="form-control" value="${ user.zipCode}" placeholder="ZIP Code">
+                                        <form:input type="number" class="form-control" path="zipCode" placeholder="ZIP Code"/>
                                     </div>
                                 </div>
                             </div>
@@ -96,15 +97,15 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>About Me</label>
-                                        <textarea rows="5" class="form-control"
-                                                  placeholder="Here can be your description" value="Mike">${ user.aboutMe}</textarea>
+                                        <form:textarea rows="5" class="form-control"
+                                                  placeholder="Here can be your description" path="aboutMe"/>
                                     </div>
                                 </div>
                             </div>
 
                             <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                             <div class="clearfix"></div>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
             </div>

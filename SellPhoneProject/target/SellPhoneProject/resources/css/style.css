@@ -245,3 +245,6 @@ footer .copy {
 .table-dark > td {
     background-color: #343a40 !important;
 }
+.active-page{
+    background-color: #4e555b !important;
+}

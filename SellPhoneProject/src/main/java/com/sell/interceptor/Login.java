@@ -19,11 +19,11 @@ public class Login extends HandlerInterceptorAdapter {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HttpSession session = request.getSession();
-        if(session.getAttribute("user_id") == null){
-          //  redirectAttributes.addAttribute("msg", "Bạn chưa đăng nhập !");
-            response.sendRedirect(request.getContextPath() + "/NoLoggedIn");
-        }
+//        HttpSession session = request.getSession();
+//        if(session.getAttribute("user_id") == null){
+//          //  redirectAttributes.addAttribute("msg", "Bạn chưa đăng nhập !");
+//            response.sendRedirect(request.getContextPath() + "/NoLoggedIn");
+//        }
     }
 
     @Override

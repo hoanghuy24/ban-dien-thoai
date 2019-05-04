@@ -1,6 +1,8 @@
 package com.sell.entity;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -186,5 +188,15 @@ public class Product {
 
     public void setCamera(String camera) {
         this.camera = camera;
+    }
+    public String getFormatPrice(){
+        Locale locale = new Locale("vi", "VN");
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        return numberFormat.format(this.price);
+    }
+    public String getFormatDiscount(){
+        Locale locale = new Locale("vi", "VN");
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        return numberFormat.format(this.price - this.discount);
     }
 }

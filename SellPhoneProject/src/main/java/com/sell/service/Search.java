@@ -26,6 +26,7 @@ public class Search {
 			model.addAttribute("notResult", "Not Result");
 			return "ResultSearch";
 		}
+		model.addAttribute("pageID", page);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("result", "There " + size + " result for " + keyword);
 		model.addAttribute("listResult", pagination(page, keyword, IDCategory.total));
@@ -70,8 +71,4 @@ public class Search {
 	 * " kết quả cho " + keyword); model.addAttribute("listResult",
 	 * getResultSearch(keyword)); return "view/ResultSearch"; }
 	 */
-	
-	public static void main(String[] args) {
-		System.out.println(Pattern.matches("[^0-9]", "2"));
-	}
 }

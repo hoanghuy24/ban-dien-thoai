@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<title>Info</title>
+<title>Thông tin sản phẩm ${ product.getName() }</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,7 +40,7 @@
 
 					<div class="col-sm-4">
 						<div class="img-thumbnail main-img">
-							<img src="${ product.getImage()}" width="100%" height="200px">
+							<img src="${ product.getImage()}" width="100%" height="100%">
 						</div>
 
 						<!-- Slide -->
@@ -82,17 +82,17 @@
 						<c:choose>
 							<c:when test="${ product.getDiscount() > 0}">
 								<c:set var="discount"
-									value="${product.getPrice() - product.getDiscount()}" />
+									value="${ product.getFormatDiscount() }" />
 								<h6>
 									<label>Giá: </label> <span class="price"> ${discount}</span> <br>
 									<label>Giá niêm yết:</label><span class="discount">
-										${product.getPrice()} </span>
+										${product.getFormatPrice()} </span>
 								</h6>
 							</c:when>
 							<c:otherwise>
 								<h6>
 									<label>Giá: </label> <span class="price">
-										${product.getPrice()}</span>
+										${ product.getFormatDiscount() }</span>
 								</h6>
 							</c:otherwise>
 						</c:choose>
