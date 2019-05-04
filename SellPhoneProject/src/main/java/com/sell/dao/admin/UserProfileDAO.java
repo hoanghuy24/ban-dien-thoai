@@ -10,4 +10,6 @@ public interface UserProfileDAO {
     List<UserProfile> getResultList();
     UserProfile getUsersProfile(int id);
   //  UserProfile getUsersProfileByName(String username);
+    UserProfile getUserProfileByUserId(int id);
+    boolean updateProfile(UserProfile profile);
 }

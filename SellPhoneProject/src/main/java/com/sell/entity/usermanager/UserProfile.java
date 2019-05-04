@@ -22,7 +22,13 @@ public class UserProfile {
     @JoinColumn(name = "id_user")
     private Users user_id;
     @Column
-    private String email, address, city, country;
+    private String email;
+    @Column
+    private String address;
+    @Column
+    private String city;
+    @Column
+    private String country;
     @Column(name = "zip_code")
     private String zipCode;
     @Column(name = "about_me")
@@ -90,13 +96,20 @@ public class UserProfile {
 
     @Override
     public String toString() {
-        return "UserProfileDAO{" +
+        return "UserProfile{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", date='" + date + '\'' +
                 ", otherDetail='" + otherDetail + '\'' +
+                ", avatar='" + avatar + '\'' +
                 ", user_id=" + user_id +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
                 '}';
     }
 

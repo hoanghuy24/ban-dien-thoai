@@ -37,12 +37,12 @@ public class AdminController {
                         @RequestParam(value = "password") String password, RedirectAttributes redirectAttributes) {
         return adminServices.resultLogin(username, password, redirectAttributes);
     }
-
-    @RequestMapping("/NoLoggedIn")
-    public String Check(Model mm){
-        mm.addAttribute("msg", "Chưa đăng nhập !");
-        return "/admin/login";
-    }
+//
+//    @RequestMapping("/NoLoggedIn")
+//    public String Check(Model mm){
+//        mm.addAttribute("msg", "Chưa đăng nhập !");
+//        return "/admin/login";
+//    }
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request) {
