@@ -1,5 +1,7 @@
 package com.sell.phone.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +14,9 @@ public class MainController {
 	@Autowired
 	HomeService homeController;
 	@RequestMapping("/")
-	public String index(Model model) {
+	public String index(Model model, HttpServletRequest request) {
 		homeController.index(model);
+		model.addAttribute("user", request.getSession().getAttribute("user_id"));
 		return "/Home";
 	}
 	@RequestMapping("/show-info")
