@@ -33,6 +33,11 @@ public class BuyProductController {
 		return "redirect:/" + product.getCategory().getCategory() + "/" + product.getCode() + "-" + id;
 
 	}
+<<<<<<< HEAD
+	@RequestMapping("/cart")
+	public String cart(){
+		return "/Cart/show-cart";
+=======
 	
 	@RequestMapping("cart")
 	public String cart(Model model, HttpServletRequest request) {
@@ -69,6 +74,7 @@ public class BuyProductController {
 	public String test1(@RequestParam("user") Users users) {
 		System.out.println(users.getUsername());
 		return "Home";
+>>>>>>> 399b2d61174f81511b2e1b29654c73d71fea7539
 	}
 
 }
