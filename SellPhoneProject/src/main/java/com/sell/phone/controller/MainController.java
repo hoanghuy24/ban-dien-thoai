@@ -15,8 +15,7 @@ public class MainController {
 	HomeService homeController;
 	@RequestMapping("/")
 	public String index(Model model, HttpServletRequest request) {
-		homeController.index(model);
-		model.addAttribute("user", request.getSession().getAttribute("user_id"));
+		homeController.index(model, request);
 		return "/Home";
 	}
 	@RequestMapping("/show-info")

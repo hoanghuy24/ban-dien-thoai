@@ -87,6 +87,8 @@ public class BuyProductService {
 					&& u.getPassword().equalsIgnoreCase(users.getPassword())) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", u.getId());
+				session.setAttribute("user", users);
+                session.setMaxInactiveInterval(60*60*12);
 				return true;
 			}
 		}

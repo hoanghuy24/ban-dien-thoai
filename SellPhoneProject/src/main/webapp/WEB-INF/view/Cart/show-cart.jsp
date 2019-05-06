@@ -101,12 +101,18 @@
 	</c:forEach>
 
 	<div class="d-flex justify-content-center">
-		<a href="pay" class="btn btn-primary align-content-center mb-4">Tiến
-			hành thanh toán</a>
+		<a href="pay" class="btn btn-primary align-content-center mb-4">Thanh Toán Khi Nhận Hàng</a><p>    </p>
+			<a href="pay" id="payLive" class="btn btn-primary align-content-center mb-4">Thanh Toán Trực Tuyến</a>
 	</div>
 	<c:if test='${ pay == "pay" }'>
 		<p>Tổng tiền: ${ sumMoney }</p>
 	</c:if>
-	<h1></h1>
+	<script type="text/javascript">
+		var payLive = document.getElementById("payLive");
+		payLive.onclick = function(){
+			alert("Chức năng đang trong quá trình phát triển");
+			return false;
+		}
+	</script>
 </body>
 </html>

@@ -48,10 +48,15 @@
                         <button>Tìm kiếm</button>
                     </form>
                 </div>
-                <c:if test="${ sessionScope.user_id != null}">
+                <c:if test="${ sessionScope.user_id != null && sessionScope.user != null }">
                     <div class="col-md-3">
-                        <a class="cart-icon" href="${ home}/cart"><i class="fas fa-shopping-cart"></i></a>
+                    	<c:set var="name" value="${ sessionScope.user.username }"></c:set>
+                        <a class="cart-icon" href="${ home}/cart" id="cart">Giỏ hàng - ${ name }  <i class="fas fa-shopping-cart"></i></a>
+                        <a class="cart-icon" href="${ home}/logout" id="cart">Đăng xuất</a>
                     </div>
+                </c:if>
+                <c:if test="${ sessionScope.user_id == null || sessionScope.user == null }">
+                	 <a class="cart-icon" href="${ home}/login" id="cart">Đăng nhập<i class="fas fa-shopping-cart"></i></a>
                 </c:if>
             </div>
         </div>

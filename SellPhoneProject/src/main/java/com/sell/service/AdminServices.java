@@ -24,11 +24,13 @@ public class AdminServices {
                 //       model.addAttribute("username", users);
                 HttpSession session = request.getSession();
                 session.setAttribute("user_id", users.getId());
-                return "redirect:/admin/dashboard";
+                session.setAttribute("user", users);
+                session.setMaxInactiveInterval(60*60*12);
+                return "redirect:/";
             }
         }
         // fail
-        redirectAttributes.addAttribute("msg", "Tên tài khoản hoặc mật khẩu không chính xác !");
+        redirectAttributes.addAttribute("msg", "Wrong Username or Password !!");
         return "redirect:/login";
     }
 
