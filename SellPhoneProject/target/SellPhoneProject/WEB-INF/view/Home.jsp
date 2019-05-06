@@ -9,7 +9,7 @@
 </head>
 <body>
 
-
+${ user }
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -22,22 +22,18 @@
                 </ul>
 
                 <div class="carousel-inner">
-                    <c:url var="img" value="/resources/img/slide-3.png"></c:url>
-                    <div class="carousel-item active">
-                        <img src="${ img }" alt="Los Angeles">
-                    </div>
-                    <c:url var="img" value="/resources/img/slide-2.png"></c:url>
 
-                    <div class="carousel-item">
-                        <img src="${ img }" alt="Chicago">
+                    <div class="carousel-item active">
+                        <img src="<c:url value="/resources/img/slide-3.png"/>" alt="Los Angeles">
                     </div>
-                    <c:url var="img" value="/resources/img/slide-1.png"></c:url>
                     <div class="carousel-item">
-                        <img src="${ img }" alt="New York">
+                        <img src="<c:url value="/resources/img/slide-2.png"/>" alt="Chicago">
                     </div>
-                    <c:url var="img" value="/resources/img/slide-4.png"></c:url>
                     <div class="carousel-item">
-                        <img src="${ img }" alt="New York">
+                        <img src="<c:url value="/resources/img/slide-1.png"/>" alt="New York">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="<c:url value="/resources/img/slide-4.png"/>" alt="New York">
                     </div>
                 </div>
 
@@ -46,7 +42,6 @@
                 </a> <a class="carousel-control-next" href="#demo" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
-
             </div>
 
             <!-- sản phẩm -->

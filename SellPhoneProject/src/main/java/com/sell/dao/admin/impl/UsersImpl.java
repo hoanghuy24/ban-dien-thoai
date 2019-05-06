@@ -57,12 +57,13 @@ public class UsersImpl implements UsersDAO {
 	public boolean registerUsers(Users users) {
 		Session session = factory.openSession();
 		Cart cart = new Cart("", users);
+		UserProfile userProfile = new UserProfile();
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
 			session.save(users);
 			session.save(cart);
-			session.save(profile);
+			session.save(userProfile);
 			transaction.commit();
 			return true;
 		} catch (Exception e) {

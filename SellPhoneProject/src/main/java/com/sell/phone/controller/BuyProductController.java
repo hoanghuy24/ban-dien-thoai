@@ -25,7 +25,9 @@ public class BuyProductController {
 			RedirectAttributes redirectAttributes) {
 		return buyProductService.checkLogin(request, id, redirectAttributes, model);
 	}
-	
-	
+	@RequestMapping("/cart")
+	public String cart(){
+		return "/Cart/show-cart";
+	}
 
 }

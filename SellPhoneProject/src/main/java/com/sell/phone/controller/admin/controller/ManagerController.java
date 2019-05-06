@@ -36,23 +36,10 @@ public class ManagerController {
 	}
 
 	@PostMapping("/update-profile")
-	public String updateProfile(@ModelAttribute UserProfile userProfile, RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		Integer id = (Integer)request.getSession().getAttribute("user_id");
-		System.out.println(id);
-		Users users = userProfileImpl.getUserById(id);
-		UserProfile profile = userProfileImpl.getUserProfileById(users.getUserProfile().getId());
-		profile.setFirstName(userProfile.getFirstName());
-		profile.setLastName(userProfile.getLastName());
-		profile.setAddress(userProfile.getAddress());
-		profile.setAboutMe(userProfile.getAboutMe());
-		profile.setCity(userProfile.getCity());
-		profile.setCountry(userProfile.getCountry());
-		System.out.println("ID Profile: "+userProfile.getId());
-		if (this.userProfileImpl.updateProfile(profile)) {
+	public String updateProfile(@ModelAttribute UserProfile userProfile, RedirectAttributes redirectAttributes) {
+		if (this.userProfileImpl.updateProfile(userProfile)) {
 			redirectAttributes.addAttribute("msg", "Edit success !");
 			System.out.println("complete");
-			System.out.println(profile.getFirstName());
-			System.out.println(userProfile);
 		} else {
 			redirectAttributes.addAttribute("msg", "Edit Fail !");
 			System.out.println(userProfile);
