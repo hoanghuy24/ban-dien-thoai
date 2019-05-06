@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>this is buy</h1>
+<h1>this is buy ${ users.username }</h1>
 <div align="center">
-	${ users.username }
+	
 	<c:forEach items="${ users.listCart }" var="cart">
 		<c:forEach var="item" items="${ cart.listItem }">
 			<div><h4>Sản phẩm: ${ item.product.name }</h4></div>
