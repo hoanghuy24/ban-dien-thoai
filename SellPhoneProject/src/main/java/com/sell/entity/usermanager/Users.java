@@ -19,9 +19,8 @@ public class Users {
 	@OneToOne
 	@JoinColumn(name = "id_role")
 	private Role id_role;
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_user")
-	List<Cart> listCart;
+	@OneToOne(mappedBy = "users")
+	Cart cart;
 	@OneToOne(mappedBy = "user_id")
 	UserProfile userProfile;
 
@@ -93,12 +92,12 @@ public class Users {
 		this.id_role = id_role;
 	}
 
-	public List<Cart> getListCart() {
-		return listCart;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setListCart(List<Cart> listCart) {
-		this.listCart = listCart;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 }

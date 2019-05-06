@@ -36,11 +36,8 @@ public class BuyProductImpl implements BuyProductDAO {
 		BuyProductImpl buyProductImpl = new BuyProductImpl();
 		Session session = HibernateUI.getSessionFactory().openSession();
 		Users users = session.get(Users.class, 2);
-		Cart cart = null;
-		for(Cart c : users.getListCart()) {
-			cart = c;
-			break;
-		}
+		Cart cart = users.getCart();
+		
 		if(cart != null) {
 			for(Item item : cart.getListItem()) {
 				if(item.getId() == 2) {

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Login extends HandlerInterceptorAdapter {
+public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 	@Autowired
 	UserProfileImpl profile;
 
@@ -19,9 +19,8 @@ public class Login extends HandlerInterceptorAdapter {
 		if(request.getSession().getAttribute("user_id") == null) {
 			request.setAttribute("msg", "Vui lòng đăng nhập ");
 			response.sendRedirect(request.getContextPath()+"/login");
-			return false;
 		}
-		return true;
+		return false;
 	}
 
 	@Override

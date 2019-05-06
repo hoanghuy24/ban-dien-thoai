@@ -1,16 +1,10 @@
 package com.sell.phone.controller;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +27,7 @@ public class BuyProductController {
 	public String check(HttpServletRequest request, Model model, @PathVariable("id") int id,
 			RedirectAttributes redirectAttributes) {
 		Product product = productImpl.getProduct(id);
-		if (buyProductService.checkLogin(request, id, redirectAttributes, model)) {
+		if (buyProductService.checkLogin(request, redirectAttributes, model)) {
 			return "redirect:/cart";
 		}
 		return "redirect:/" + product.getCategory().getCategory() + "/" + product.getCode() + "-" + id;
@@ -41,8 +35,8 @@ public class BuyProductController {
 	}
 	
 	@RequestMapping("cart")
-	public String cart(@RequestParam(name = "id", required = false) int id, Model model, HttpServletRequest request) {
-		buyProductService.cart(id, model, request);
+	public String cart(Model model, HttpServletRequest request) {
+		buyProductService.cart(model, request);
 		return "Cart/cart";
 	}
 

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sell.dao.admin.impl.UsersImpl;
 import com.sell.dao.impl.ProductImpl;
+import com.sell.entity.Cart;
 import com.sell.entity.Product;
 import com.sell.entity.usermanager.Users;
 
@@ -20,8 +21,7 @@ public class BuyProductService {
 	ProductImpl productImpl;
 	@Autowired
 	UsersImpl usersImpl;
-
-	public boolean checkLogin(HttpServletRequest request, int id, RedirectAttributes redirectAttributes, Model model) {
+	public boolean checkLogin(HttpServletRequest request, RedirectAttributes redirectAttributes, Model model) {
 		System.out.println("this is phone check id");
 		HttpSession httpSession = request.getSession();
 		if (httpSession.getAttribute("user_id") == null) {
@@ -29,15 +29,19 @@ public class BuyProductService {
 			System.out.println("redirect");
 			return false;
 		}
-		
 		return true;
 	}
 	
-	public void cart(int id, Model model, HttpServletRequest request) {
+	public void order() {
+		
+	}
+	
+	
+	public void cart(Model model, HttpServletRequest request) {
 		HttpSession httpSession = request.getSession();
 		Integer id_user = (Integer) httpSession.getAttribute("user_id");
 		Users users = usersImpl.getUsers(id_user);
-		model.addAttribute("users",users);
+		model.addAttribute("users", users);
 	}
 
 	public boolean check(Users users, HttpServletRequest request) {
@@ -50,5 +54,11 @@ public class BuyProductService {
 			}
 		}
 		return false;
+	}
+	
+	public void OrderProduct(int id, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Integer idUser = (Integer) session.getAttribute("user_id");
+		
 	}
 }

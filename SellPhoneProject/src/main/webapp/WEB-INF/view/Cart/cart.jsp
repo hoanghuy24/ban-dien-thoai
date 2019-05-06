@@ -10,16 +10,13 @@
 <body>
 <h1>this is buy ${ users.username }</h1>
 <div align="center">
-	
-	<c:forEach items="${ users.listCart }" var="cart">
-		<c:forEach var="item" items="${ cart.listItem }">
+		<c:forEach var="item" items="${ users.cart.listItem }">
 			<div><h4>Sản phẩm: ${ item.product.name }</h4></div>
 			<div><h4>Số lượng: ${ item.numberOfProduct }</h4></div>
 			<img src="${ item.product.image }">
 			<br>
 			<br>
 		</c:forEach>
-	</c:forEach>
 	</div>
 </body>
 </html>

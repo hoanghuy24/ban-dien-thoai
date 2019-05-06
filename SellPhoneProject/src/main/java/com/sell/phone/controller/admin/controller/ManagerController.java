@@ -25,14 +25,9 @@ public class ManagerController {
 
 	@RequestMapping("/user")
 	public String user(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
-		if (request.getSession().getAttribute("user_id") != null) {
 			int id = (Integer) request.getSession().getAttribute("user_id");
 			model.addAttribute("user", userProfileImpl.getUserProfileByUserId(id));
 			return "/admin/user";
-		} else {
-			redirectAttributes.addAttribute("msg", "Bạn chưa đăng nhập");
-			return "redirect:/login";
-		}
 	}
 
 	@PostMapping("/update-profile")

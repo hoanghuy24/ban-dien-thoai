@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.sell.dao.impl.CategoryImpl;
+import com.sell.entity.usermanager.Users;
 
 
 public class Main {
@@ -12,10 +13,7 @@ public class Main {
 	static SessionFactory factory = new Configuration().configure().buildSessionFactory();
 	public static void main(String[] args) {
 		Session session = factory.openSession();
-		Category category = new CategoryImpl().getCategory(1);
-		System.out.println(category.getCategory());
-		for(Product p: category.getListProduct()) {
-			System.out.println(p.getName());
-		}
+		Users u = session.get(Users.class, 2);
+		System.out.println(u.getCart().getId());
 	}
 }

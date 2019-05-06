@@ -31,18 +31,17 @@ public class AdminController {
             return "/admin/login";
         }
     }
+    
+    @RequestMapping("admin/login")
+    public String adminLogin() {
+    	return "redirect:login";
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam(value = "username") String username,
                         @RequestParam(value = "password") String password, RedirectAttributes redirectAttributes) {
         return adminServices.resultLogin(username, password, redirectAttributes);
     }
-//
-//    @RequestMapping("/NoLoggedIn")
-//    public String Check(Model mm){
-//        mm.addAttribute("msg", "Chưa đăng nhập !");
-//        return "/admin/login";
-//    }
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request) {
