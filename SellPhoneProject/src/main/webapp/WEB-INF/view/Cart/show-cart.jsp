@@ -5,85 +5,108 @@
   Time: 4:42 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>Title</title>
+<title>Title</title>
 </head>
 <body>
-<div class="row">
-    <div class="col-sm-3">
-    </div>
-    <div class="col-sm-6 border-top">
-        <div class="row mt-4 mb-4">
-            <div class="col-sm-3">
-                <img src="https://images.fpt.shop/unsafe/fit-in/465x465/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/12/8/636483223586180190_3.jpg"
-                     width="100%">
-            </div>
-            <div class="col-sm-6">
+	<c:forEach var="item" items="${ users.cart.listItem }">
 
-                <h6>Tên sản phẩm</h6>
-                <p>Giá: <span id="price-id">1000</span></p>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <!-- chỗ vào có -id thì thay bằng id của sản phẩm-->
-                    <button id="add-id" class="btn form-control"> +</button>
-                    <input id="count-id" class="form-control" type="text" value="1" readonly="true">
-                    <button id="remove-id" class="btn form-control"> -</button>
-                </div>
-            </div>
-            <script>
-                $(function () {
-                    var sum = 0;
-                    var price = $("#price-id").text();
-                    var count = $("#count-id").val();
-                    sum = price * count;
-                    $("#sum-id").text(sum);
-                    $("#add-id").click(function () {
-                        var sum = 0;
-                        var price = $("#price-id").text();
-                        var count = $("#count-id").val();
-                        count++;
-                        $("#count-id").val(count);
-                        sum = price * count;
-                        $("#sum-id").text(sum);
-                        //////
-                        var sum_id = $("#sum-id").text();
-                        var sum_1 = $("#sum-1").text();
-                        var sum_2 = $("#sum-1").text();
-                        $("#sumAll").text(sum_id + sum_1 + sum_2);
-                    });
-                    $("#remove-id").click(function () {
-                        var sum = 0;
-                        var price = $("#price-id").text();
-                        var count = $("#count-id").val();
-                        if (count > 0) {
-                            count--;
-                        }
-                        $("#count-id").val(count);
-                        sum = price * count;
-                        $("#sum-id").text(sum);
-                        //////////
-                        var sum_id = $("#sum-id").text();
-                        var sum_1 = $("#sum-1").text();
-                        var sum_2 = $("#sum-2").text();
-                        $("#sumAll").text(sum_id + sum_1 + sum_2);
-                    });
-                });
-            </script>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6 border-top">
+				<div class="row mt-4 mb-4">
+					<div class="col-sm-3">
+						<img src="${ item.product.image }" width="100%">
+					</div>
 
-        </div>
-        <div class="row border-top">
-            <p class="mt-4 mb-4">Tổng tiền: <span id="sum-id"></span></p>
-        </div>
+					<div class="col-sm-6">
 
-    </div>
-    <div class="col-sm-3">
-    </div>
-</div>
-    <div class="d-flex justify-content-center">
-    <a href="#" class="btn btn-primary align-content-center mb-4">Tiến hành thanh toán</a>
-    </div>
+
+						<h6>Tên sản phẩm: ${ item.product.name }</h6>
+						<p>ID: ${ item.product.id }</p>
+						<p>
+							Giá: <span id="price-${ item.product.id }">${ item.product.price }</span>
+						</p>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+							<!-- chỗ vào có -id thì thay bằng id của sản phẩm-->
+							<form action="update-${ item.product.id }">
+								<button id="add-${ item.product.id }" class="btn form-control">+</button>
+								<input id="count-${ item.product.id }" class="form-control"
+									type="text" value="${ item.numberOfProduct }" readonly="true"
+									name="quentity">
+								<button id="remove-${ item.product.id }"
+									class="btn form-control">-</button>
+							</form>
+						</div>
+					</div>
+					<script type="text/javascript">
+						$(function() {
+							var sum = 0;
+							var price = $("#price-${ item.product.id }").text();
+							var count = $("#count-${ item.product.id }").val();
+							sum = price * count;
+							$("#sum-${ item.product.id }").text(sum);
+							$("#add-${ item.product.id }").click(
+									function() {
+										var sum = 0;
+										var price = $(
+												"#price-${ item.product.id }")
+												.text();
+										var count = $(
+												"#count-${ item.product.id }")
+												.val();
+										count++;
+										$("#count-${ item.product.id }").val(
+												count);
+										sum = price * count;
+										$("#sum-${ item.product.id }")
+												.text(sum);
+									});
+							var sum = 0;
+							$("#remove-${ item.product.id }").click(
+									function() {
+										var price = $(
+												"#price-${ item.product.id }")
+												.text();
+										var count = $(
+												"#count-${ item.product.id }")
+												.val();
+										if (count > 0) {
+											count--;
+										}
+										$("#count-${ item.product.id }").val(
+												count);
+										sum = price * count;
+										$('#sum-${ item.product.id }')
+												.text(sum);
+									});
+						});
+					</script>
+					<a href="delete-${ item.product.id }">Xóa khỏi giỏ hàng</a>
+				</div>
+				<div class="row border-top">
+					<p class="mt-4 mb-4">
+						Tổng tiền: <span id="sum-${ item.product.id }"></span>
+					</p>
+				</div>
+			</div>
+
+			<div class="col-sm-3"></div>
+		</div>
+	</c:forEach>
+
+	<div class="d-flex justify-content-center">
+		<a href="pay" class="btn btn-primary align-content-center mb-4">Tiến
+			hành thanh toán</a>
+	</div>
+	<c:if test='${ pay == "pay" }'>
+		<p>Tổng tiền: ${ sumMoney }</p>
+	</c:if>
+	<h1></h1>
 </body>
 </html>

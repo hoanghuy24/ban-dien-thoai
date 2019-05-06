@@ -38,7 +38,6 @@
 						</div>
 					</div>
 
-<<<<<<< HEAD
 					<a class="carousel-control-prev" href="#demo" data-slide="prev">
 						<span class="carousel-control-prev-icon"></span>
 					</a> <a class="carousel-control-next" href="#demo" data-slide="next">
@@ -46,7 +45,6 @@
 					</a>
 
 				</div>
-				<h1><a href="${ pageContext.request.contextPath }/cart">Cart</a></h1>
 				<!-- sản phẩm -->
 				<section id="san-pham-noi-bat">
 					<h2 class="title">Sản phẩm nổi bật</h2>
@@ -112,89 +110,5 @@
 			</aside>
 		</div>
 	</div>
-=======
-                <div class="carousel-inner">
-
-                    <div class="carousel-item active">
-                        <img src="<c:url value="/resources/img/slide-3.png"/>" alt="Los Angeles">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<c:url value="/resources/img/slide-2.png"/>" alt="Chicago">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<c:url value="/resources/img/slide-1.png"/>" alt="New York">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<c:url value="/resources/img/slide-4.png"/>" alt="New York">
-                    </div>
-                </div>
-
-                <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a> <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-            </div>
-
-            <!-- sản phẩm -->
-            <section id="san-pham-noi-bat">
-                <h2 class="title">Sản phẩm nổi bật</h2>
-                <div class="row">
-                    <c:forEach var="product" items="${listProductHightLight}">
-                        <div class="col-md-4">
-                            <div class="item text-center">
-                                <a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}"><img
-                                        src="${ product.getImage() }" width="270px" height="150px"
-                                        alt="ảnh điện thoại"></a>
-                                <p class="ten-san-pham">
-                                    <b><a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}">${ product.getName() }</a></b>
-                                </p>
-                                <p>
-                                    Giá: <span class="price">${ product.getFormatDiscount() }</span>
-                                </p>
-                                <c:if test="${product.getDiscount() > 0}">
-                                    <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
-                                    <div class="sale">-${ Math.round(sale) }%</div>
-                                </c:if>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
-            </section>
-            <section id="san-pham-moi">
-                <h2 class="title">Sản phẩm mới</h2>
-                <div class="row">
-                    <c:forEach var="product" items="${ listProductNew }">
-                        <div class="col-md-4">
-                            <div class="item text-center">
-                                <a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}"><img
-                                        src="${ product.getImage() }" alt="ảnh điện thoại"></a>
-                                <p class="ten-san-pham">
-                                    <b><a href="${ product.getCategory().getCategory().toLowerCase()}/${ product.getCode() }-${ product.getId()}">${ product.getName() }</a></b>
-                                </p>
-                                <p>
-                                    Giá: <span class="price">${ product.getFormatDiscount() }</span>
-                                </p>
-                                <c:if test="${product.getDiscount() > 0}">
-                                    <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
-                                    <div class="sale">-${ Math.round(sale) }%</div>
-                                </c:if>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
-            </section>
-
-        </div>
-
-        <aside id="side-banner" class="col-md-4">
-            <img src="img/aside-6.png" alt=""> <img src="img/aside-5.png"
-                                                    alt=""> <img src="img/aside-4.png" alt=""> <img
-                src="img/aside-3.png" alt=""> <img src="img/aside-2.png"
-                                                   alt=""> <img src="img/aside-1.png" alt="">
-        </aside>
-    </div>
-</div>
->>>>>>> b42ca2df4cd5046b06c5b4e7fcf58815a170dbfd
 </body>
 </html>

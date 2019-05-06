@@ -38,6 +38,7 @@
                 <div class="col-md-3">
                     <a href="${ home }"> <i class="fas fa-home"
                                             style="color: white; font-size: 30px; text-align: center; line-height: 100%;"></i>
+                                            <img src="resources/img/logo.jpg" width="50px" height="50px">
                     </a>
                 </div>
                 <div class="col-md-6">

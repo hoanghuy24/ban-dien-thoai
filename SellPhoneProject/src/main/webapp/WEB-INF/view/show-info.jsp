@@ -16,9 +16,6 @@
 </head>
 <body>
 	<div class="container">
-
-
-
 		<c:choose>
 			<c:when test="${ product != null}">
 				<nav aria-label="breadcrumb">
@@ -81,8 +78,7 @@
 					<div class="col-sm-4">
 						<c:choose>
 							<c:when test="${ product.getDiscount() > 0}">
-								<c:set var="discount"
-									value="${ product.getFormatDiscount() }" />
+								<c:set var="discount" value="${ product.getFormatDiscount() }" />
 								<h6>
 									<label>Giá: </label> <span class="price"> ${discount}</span> <br>
 									<label>Giá niêm yết:</label><span class="discount">
@@ -91,17 +87,25 @@
 							</c:when>
 							<c:otherwise>
 								<h6>
-									<label>Giá: </label> <span class="price">
-										${ product.getFormatDiscount() }</span>
+									<label>Giá: </label> <span class="price"> ${ product.getFormatDiscount() }</span>
 								</h6>
 							</c:otherwise>
 						</c:choose>
-						<label>Mô tả: </label><span> ${ product.getDescription()}</span> <a
-							href="check-${ product.id }" class="btn btn-outline-primary buynow">Order</a>
+						<label>Mô tả: </label><span> ${ product.getDescription()}</span> <br>
+						<form action="check-${ product.id }">
+							<input type="button" id="rm" value="-" width="10px"
+								onclick="return false"> <input type="text" id="quentity"
+								name="quentity" value=""> <input type="button" id="add"
+								value="+" width="10px" onclick="return false"> <br>
+							<button class="btn btn-outline-primary buynow">Order</button>
+							<input type="hidden" name="idProduct" value="${ product.id }">
 							<c:if test='${ error == "Please Login" }'>
 								${ error }
-								<a href="${ pageContext.request.contextPath }/login-buy-${ product.id}">Đăng nhập tại đây</a>
+								<a
+									href="${ pageContext.request.contextPath }/login-buy-${ product.id}">Đăng
+									nhập tại đây</a>
 							</c:if>
+						</form>
 					</div>
 
 					<div class="col-sm-4">
@@ -133,5 +137,33 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+	<script type="text/javascript">
+		var quentity = 1;
+		$("#quentity").val(quentity);
+		var add = document.getElementById("add");
+		var remove = document.getElementById('rm');
+
+		add.onclick = function() {
+			++quentity;
+			$("#quentity").val(quentity);
+		}
+
+		remove.onclick = function() {
+			--quentity;
+			if (quentity < 1) {
+				quentity = 1;
+			}
+			$("#quentity").val(quentity);
+		}
+		function check() {
+			if (quentity > 1000) {
+				quentity = document.getElementById('quentity').value;
+				alert(quentity);
+				return false;
+			}
+
+			return true;
+		}
+	</script>
 </body>
 </html>
