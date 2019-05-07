@@ -37,6 +37,7 @@ public class ItemImpl implements ItemDAO {
 		item.setCart(cart);
 		item.setProduct(product);
 		item.setNumberOfProduct(quentity);
+		item.setStatus("No");
 		session.save(item);
 		session.beginTransaction().commit();
 		session.close();
@@ -74,8 +75,8 @@ public class ItemImpl implements ItemDAO {
 	public List<Item> productOrdered(Cart cart) {
 		List<Item> list = new ArrayList<Item>();
 		System.out.println(cart.getListItem().size());
-		for(Item item : cart.getListItem()) {
-			if(item.getStatus().equalsIgnoreCase("ordered")) {
+		for (Item item : cart.getListItem()) {
+			if (item.getStatus().equalsIgnoreCase("ordered")) {
 				list.add(item);
 			}
 		}
@@ -90,8 +91,8 @@ public class ItemImpl implements ItemDAO {
 			if (item.getProduct().getId() == id) {
 				item.setStatus("No");
 				session.update(item);
-				for(PersonOrder person : listPersonOrder) {
-					if(person.getItem().getId() == item.getId()) {
+				for (PersonOrder person : listPersonOrder) {
+					if (person.getProduct().getId() == item.getProduct().getId()) {
 						person.setStatus("cancel");
 						session.update(person);
 					}
@@ -113,8 +114,9 @@ public class ItemImpl implements ItemDAO {
 			session.update(item);
 			for (Users u : listUsers) {
 				if (u.getId_role().getId() == 2) {
+					int price = (int)(item.getNumberOfProduct() * item.getProduct().getPrice());
 					PersonOrder order = new PersonOrder(1, fullName, "order", phone, addressOrder, otherInformation,
-							item, u);
+							item.getNumberOfProduct(), price, item.getProduct(), u);
 					session.save(order);
 				}
 			}

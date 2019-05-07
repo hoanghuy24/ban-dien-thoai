@@ -32,15 +32,19 @@ public class PersonOrder {
 	private String addressOrder;
 	@Column(name = "other_information")
 	private String otherInformation;
+	@Column(name = "numberOfProduct")
+	private int numberOfProduct;
+	@Column
+	private int price;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_item")
-	private Item item;
+	@JoinColumn(name = "id_product")
+	private Product product;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_user")
 	private Users users;
 
 	public PersonOrder(int sex, String fullName, String status, String phone, String addressOrder,
-			String otherInformation, Item item, Users users) {
+			String otherInformation, int numberOfProduct, int price, Product product, Users users) {
 		super();
 		this.sex = sex;
 		this.fullName = fullName;
@@ -48,7 +52,9 @@ public class PersonOrder {
 		this.phone = phone;
 		this.addressOrder = addressOrder;
 		this.otherInformation = otherInformation;
-		this.item = item;
+		this.numberOfProduct = numberOfProduct;
+		this.price = price;
+		this.product = product;
 		this.users = users;
 	}
 
@@ -80,6 +86,14 @@ public class PersonOrder {
 		this.fullName = fullName;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public String getPhone() {
 		return phone;
 	}
@@ -104,12 +118,12 @@ public class PersonOrder {
 		this.otherInformation = otherInformation;
 	}
 
-	public Item getItem() {
-		return item;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setItem(Item item) {
-		this.item = item;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public Users getUsers() {
@@ -120,14 +134,20 @@ public class PersonOrder {
 		this.users = users;
 	}
 
-	public String getStatus() {
-		return status;
+	public int getNumberOfProduct() {
+		return numberOfProduct;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setNumberOfProduct(int numberOfProduct) {
+		this.numberOfProduct = numberOfProduct;
 	}
-	
-	
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
 }
