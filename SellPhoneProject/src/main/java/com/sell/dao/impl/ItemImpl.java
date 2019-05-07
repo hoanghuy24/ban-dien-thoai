@@ -90,7 +90,6 @@ public class ItemImpl implements ItemDAO {
 				break;
 			}
 		}
-		
 		session.close();
 	}
 	

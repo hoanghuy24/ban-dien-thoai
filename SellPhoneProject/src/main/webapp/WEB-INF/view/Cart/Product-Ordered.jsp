@@ -33,19 +33,11 @@
 						</div>
 						<div class="col-sm-4 mb-4 d-flex justify-content-end">
 						<c:set var="price" value="${ item.product.price * item.numberOfProduct }"></c:set>
-							<small><%= 
-							decimalFormat.format(pageContext.getAttribute("price")) + " VNĐ"%></small>
+							<small><%= decimalFormat.format(pageContext.getAttribute("price")) + " VNĐ"%></small>
 						</div>
 						<a href="${ home }/destroy-order-${ item.product.id }">Hủy đơn hàng</a>
 					</div>
 				</c:forEach>
-
-				<!-- form đặt hàng -->
-				
-				<!-- nhận hàng trực tiếp -->
-				<!-- <div class="row">
-					Nhận hàng tại cửa hàng
-				</div> -->
 			</div>
 			<div class="col-sm-3"></div>
 		</div>

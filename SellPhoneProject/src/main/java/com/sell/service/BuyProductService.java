@@ -110,7 +110,7 @@ public class BuyProductService {
 		HttpSession httpSession = request.getSession();
 		Integer id = (Integer) httpSession.getAttribute("user_id");
 		Users users = usersImpl.getUsers(id);
-		itemImpl.DestroyOrder(id, users.getCart());
+		itemImpl.DestroyOrder(idProduct, users.getCart());
 	}
 	
 	public static void main(String[] args) {
