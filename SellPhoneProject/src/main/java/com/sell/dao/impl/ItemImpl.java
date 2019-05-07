@@ -75,7 +75,7 @@ public class ItemImpl implements ItemDAO {
 		List<Item> list = new ArrayList<Item>();
 		System.out.println(cart.getListItem().size());
 		for(Item item : cart.getListItem()) {
-			if(item.getStatus() == "ordered") {
+			if(item.getStatus().equalsIgnoreCase("ordered")) {
 				list.add(item);
 			}
 		}
