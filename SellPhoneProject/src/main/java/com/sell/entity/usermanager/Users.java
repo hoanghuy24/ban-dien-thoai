@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.sell.entity.Cart;
+import com.sell.entity.PersonOrder;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +24,8 @@ public class Users {
 	Cart cart;
 	@OneToOne(mappedBy = "user_id")
 	UserProfile userProfile;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
+	List<PersonOrder> listPersonOrder;
 
 	public Users(String username, String password) {
 		this.username = username;
@@ -98,6 +101,14 @@ public class Users {
 
 	public void setCart(Cart cart) {
 		this.cart = cart;
+	}
+
+	public List<PersonOrder> getListPersonOrder() {
+		return listPersonOrder;
+	}
+
+	public void setListPersonOrder(List<PersonOrder> listPersonOrder) {
+		this.listPersonOrder = listPersonOrder;
 	}
 
 }

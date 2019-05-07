@@ -29,8 +29,8 @@ public class BuyProductController {
 		Product product = productImpl.getProduct(id);
 		if (buyProductService.checkLogin(request, redirectAttributes, model)) {
 			int quentity = Integer.parseInt(request.getParameter("quentity"));
-			//System.out.println(i);
-			//redirectAttributes.addAttribute("quentity", i);
+			// System.out.println(i);
+			// redirectAttributes.addAttribute("quentity", i);
 			redirectAttributes.addAttribute("id", id);
 			redirectAttributes.addAttribute("quentity", quentity);
 			return "redirect:/order-product";
@@ -57,20 +57,20 @@ public class BuyProductController {
 		buyProductService.cart(model, request);
 		return "Cart/show-cart";
 	}
-	
+
 	@RequestMapping("delete-{id}")
 	public String delete(@PathVariable("id") int id, HttpServletRequest request) {
 		buyProductService.delete(id, request);
-		
 		return "redirect:cart";
 	}
-	
+
 	@RequestMapping("update-{id}")
-	public String updateQuentity(@PathVariable("id") int id, @RequestParam("quentity")int quentity, HttpServletRequest request) {
+	public String updateQuentity(@PathVariable("id") int id, @RequestParam("quentity") int quentity,
+			HttpServletRequest request) {
 		buyProductService.updateQuentity(id, quentity, request);
 		return "redirect:cart";
 	}
-	
+
 	@RequestMapping("pay")
 	public String pay(Model model, HttpServletRequest request) {
 		buyProductService.pay(request, model);
@@ -97,15 +97,23 @@ public class BuyProductController {
 		redirectAttributes.addAttribute("error", "Wrong Username or Password !!!");
 		return "redirect:/login-buy-" + id;
 	}
-	
+
 	@RequestMapping("ordered")
 	public String ordered(HttpServletRequest request, Model model) {
 		buyProductService.Ordered(request, model);
 		return "Cart/Product-Ordered";
 	}
+
 	@RequestMapping("destroy-order-{id}")
 	public String destroyOrder(@PathVariable("id")int id, HttpServletRequest request) {
 		buyProductService.destroyOrder(id, request);
+		return "redirect:ordered";
+	}
+
+	@RequestMapping("continue-pay")
+	public String continuePay(HttpServletRequest request, @RequestParam("name") String fullName, @RequestParam("phonenumber") String phone, @RequestParam("other") String ortherInformation,
+			@RequestParam("address") String addressOrder) {
+		buyProductService.createOrder(request, fullName, phone, ortherInformation, addressOrder);
 		return "redirect:ordered";
 	}
 

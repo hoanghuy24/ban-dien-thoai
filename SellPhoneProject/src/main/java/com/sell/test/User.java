@@ -1,10 +1,13 @@
 package com.sell.test;
 
-import java.text.DecimalFormat;
-
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.Session;
 import org.hibernate.validator.constraints.Length;
+
+import com.sell.entity.PersonOrder;
+import com.sell.entity.usermanager.Users;
+import com.sell.hibernate.HibernateUI;
 
 public class User {
 
@@ -26,10 +29,9 @@ public class User {
 	}
 	
 	public static void main(String[] args) {
-		String s = "";
-		if(s.equals("a")) {
-			System.out.println("reu");
-		}
+		Session session = HibernateUI.getSessionFactory().openSession();
+		Users users = session.get(Users.class, 10);
+		System.out.println(users.getListPersonOrder().size());
 	}
 	
 	

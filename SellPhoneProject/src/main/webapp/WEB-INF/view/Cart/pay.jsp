@@ -55,7 +55,7 @@
  -->
 				<!-- form đặt hàng -->
 				<div class="row mt-4  d-flex justify-content-center border-top">
-					<form class="pl-3">
+					<form class="pl-3" action="continue-pay" method="POST">
 						<div class="form-group mt-4">
 							<input type="radio" name="sex" value="1"> Anh <input
 								type="radio" name="sex" value="0"> Chị

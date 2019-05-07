@@ -19,12 +19,13 @@ public class PersonOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "sex")
 	private int sex;
 	@Column(name = "full_name")
 	private String fullName;
-	
+	@Column
+	private String status;
 	@Column
 	private String phone;
 	@Column(name = "address_order")
@@ -32,17 +33,18 @@ public class PersonOrder {
 	@Column(name = "other_information")
 	private String otherInformation;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_item")
+	@JoinColumn(name = "id_item")
 	private Item item;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_user")
+	@JoinColumn(name = "id_user")
 	private Users users;
 
-	public PersonOrder(int sex, String fullName, String phone, String addressOrder, String otherInformation, Item item,
-			Users users) {
+	public PersonOrder(int sex, String fullName, String status, String phone, String addressOrder,
+			String otherInformation, Item item, Users users) {
 		super();
 		this.sex = sex;
 		this.fullName = fullName;
+		this.status = status;
 		this.phone = phone;
 		this.addressOrder = addressOrder;
 		this.otherInformation = otherInformation;
@@ -117,5 +119,15 @@ public class PersonOrder {
 	public void setUsers(Users users) {
 		this.users = users;
 	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 
 }

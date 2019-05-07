@@ -84,7 +84,7 @@ CREATE TABLE `item` (
   KEY `id_product` (`id_product`),
   CONSTRAINT `item_ibfk_1` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`),
   CONSTRAINT `item_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`numberProduct`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (23,1,1,1,'No'),(28,1,5,1,'No'),(33,1,3,6,'No'),(34,1,3,6,'No');
+INSERT INTO `item` VALUES (23,1,1,1,'No'),(28,1,5,1,'No'),(42,1,81,6,'No');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,12 +138,9 @@ CREATE TABLE `person_order` (
   `address_order` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `id_item` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_item` (`id_item`),
-  KEY `id_user` (`id_user`),
-  CONSTRAINT `person_order_ibfk_1` FOREIGN KEY (`id_item`) REFERENCES `item` (`id`),
-  CONSTRAINT `person_order_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `status` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'dang giao',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,6 +149,7 @@ CREATE TABLE `person_order` (
 
 LOCK TABLES `person_order` WRITE;
 /*!40000 ALTER TABLE `person_order` DISABLE KEYS */;
+INSERT INTO `person_order` VALUES (16,_binary '','lUA','023231','NGU','DONG CHINE',40,2,'cancel'),(17,_binary '','lUA','023231','NGU','DONG CHINE',40,4,'cancel'),(18,_binary '','lUA','023231','NGU','DONG CHINE',40,10,'cancel'),(19,_binary '','lUA','023231','NGU','DONG CHINE',40,13,'cancel'),(20,_binary '','lUA','023231','NGU','DONG CHINE',41,2,'cancel'),(21,_binary '','lUA','023231','NGU','DONG CHINE',41,4,'cancel'),(22,_binary '','lUA','023231','NGU','DONG CHINE',41,10,'cancel'),(23,_binary '','lUA','023231','NGU','DONG CHINE',41,13,'cancel'),(24,_binary '','lUA','023231','NGU','DONG CHINE',42,2,'cancel'),(25,_binary '','lUA','023231','NGU','DONG CHINE',42,4,'cancel'),(26,_binary '','lUA','023231','NGU','DONG CHINE',42,10,'cancel'),(27,_binary '','lUA','023231','NGU','DONG CHINE',42,13,'cancel'),(28,_binary '','lUA','023231','NGU','DONG CHINE',43,2,'cancel'),(29,_binary '','lUA','023231','NGU','DONG CHINE',43,4,'cancel'),(30,_binary '','lUA','023231','NGU','DONG CHINE',43,10,'cancel'),(31,_binary '','lUA','023231','NGU','DONG CHINE',43,13,'cancel'),(32,_binary '','Ngu','1w2e2','wded','qdadasd',42,2,'cancel'),(33,_binary '','Ngu','1w2e2','wded','qdadasd',42,4,'cancel'),(34,_binary '','Ngu','1w2e2','wded','qdadasd',42,10,'cancel'),(35,_binary '','Ngu','1w2e2','wded','qdadasd',42,13,'cancel');
 /*!40000 ALTER TABLE `person_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +274,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,1,'huy','123',1),(2,2,'admin','123',1),(3,1,'Tkw','0301',1),(4,NULL,'H','123',0),(6,NULL,'hoanghuy','2403',0),(8,NULL,'huyabc','2403',0),(10,NULL,'hoang','123',0),(13,NULL,'hoang123','123',0);
+INSERT INTO `users` VALUES (1,1,'huy','123',1),(2,2,'admin','123',1),(3,1,'Tkw','0301',1),(4,2,'H','123',0),(6,1,'hoanghuy','2403',0),(8,1,'huyabc','2403',0),(10,2,'hoang','123',0),(13,2,'hoang123','123',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -289,4 +287,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07 14:18:17
+-- Dump completed on 2019-05-07 15:57:23
