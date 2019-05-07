@@ -63,8 +63,8 @@
 
                 </c:if>
                 <c:if test="${ sessionScope.user_id == null || sessionScope.user == null }">
-                    <a class="cart-icon" href="${ home}/login" id="cart">Đăng nhập<i
-                            class="fas fa-shopping-cart"></i></a>
+                    <a class="cart-icon" href="${ home}/login" id="cart"><small>Đăng nhập<i
+                            class="fas fa-shopping-cart"></i></small></a>
                 </c:if>
                 <%--                end cart--%>
 
