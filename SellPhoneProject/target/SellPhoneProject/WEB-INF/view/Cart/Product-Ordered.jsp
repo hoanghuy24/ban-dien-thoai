@@ -9,16 +9,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%
 		DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
 	%>
 	<div class="container">
+		<
 		<div class="row">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6 shadow-lg p-3 mb-5 bg-white rounded">
 				<!-- show sản phẩm -->
 				<c:forEach var="item" items="${ listProducOrdered }">
-					<div class="row">
+					<div class="row position-relative">
 						<div class="col-sm-8">
 							<div class="row">
 								<div class="col-sm-4">
@@ -35,8 +37,20 @@
 						<c:set var="price" value="${ item.product.price * item.numberOfProduct }"></c:set>
 							<small><%= decimalFormat.format(pageContext.getAttribute("price")) + " VNĐ"%></small>
 						</div>
-						<a href="${ home }/destroy-order-${ item.product.id }">Hủy đơn hàng</a>
+						<a href="${ home }/destroy-order-${ item.product.id }" class="position-absolute btn-cancel">
+							<small>Hủy đơn hàng</small>
+						</a>
 					</div>
+<%--					<script>--%>
+<%--						$(function () {--%>
+<%--							$(".btn-cancel").hover(function () {--%>
+<%--								$(this).text("Hủy đơn hàng").css("transition", "1s");--%>
+<%--							});--%>
+<%--							$(".btn-cancel").mouseleave(function () {--%>
+<%--								$(this).text("X");--%>
+<%--							});--%>
+<%--						});--%>
+<%-- 					</script>--%>
 				</c:forEach>
 			</div>
 			<div class="col-sm-3"></div>
