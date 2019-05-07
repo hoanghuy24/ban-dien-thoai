@@ -288,4 +288,7 @@ div.col-md-3.card-bar:hover > div{
     transition: 1s;
 }
 
-
+.btn-cancel{
+    right: 15px;
+    bottom: 0;
+}
