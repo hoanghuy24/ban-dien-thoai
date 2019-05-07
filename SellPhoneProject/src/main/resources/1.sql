@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: sellphone
+-- Host: 127.0.0.1    Database: sellphone
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -78,13 +78,13 @@ CREATE TABLE `item` (
   `numberOfProduct` int(11) DEFAULT NULL,
   `id_product` int(11) DEFAULT NULL,
   `id_cart` int(11) DEFAULT NULL,
-  `status` varchar(20) COLLATE utf8_unicode_ci DEFAULT 'No',
+  `status` varchar(10) COLLATE utf8_unicode_ci DEFAULT 'No',
   PRIMARY KEY (`id`),
   KEY `id_cart` (`id_cart`),
   KEY `id_product` (`id_product`),
   CONSTRAINT `item_ibfk_1` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`),
   CONSTRAINT `item_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`numberProduct`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (23,1,1,1,'No'),(28,1,5,1,'No'),(42,1,81,6,'No');
+INSERT INTO `item` VALUES (28,1,5,1,'ordered'),(51,1,3,1,'ordered'),(53,3,5,6,'ordered');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,11 +136,13 @@ CREATE TABLE `person_order` (
   `phone` varchar(11) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `other_information` text COLLATE utf8mb4_vietnamese_ci,
   `address_order` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `id_item` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `status` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'dang giao',
+  `id_product` int(11) DEFAULT NULL,
+  `numberOfProduct` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +151,7 @@ CREATE TABLE `person_order` (
 
 LOCK TABLES `person_order` WRITE;
 /*!40000 ALTER TABLE `person_order` DISABLE KEYS */;
-INSERT INTO `person_order` VALUES (16,_binary '','lUA','023231','NGU','DONG CHINE',40,2,'cancel'),(17,_binary '','lUA','023231','NGU','DONG CHINE',40,4,'cancel'),(18,_binary '','lUA','023231','NGU','DONG CHINE',40,10,'cancel'),(19,_binary '','lUA','023231','NGU','DONG CHINE',40,13,'cancel'),(20,_binary '','lUA','023231','NGU','DONG CHINE',41,2,'cancel'),(21,_binary '','lUA','023231','NGU','DONG CHINE',41,4,'cancel'),(22,_binary '','lUA','023231','NGU','DONG CHINE',41,10,'cancel'),(23,_binary '','lUA','023231','NGU','DONG CHINE',41,13,'cancel'),(24,_binary '','lUA','023231','NGU','DONG CHINE',42,2,'cancel'),(25,_binary '','lUA','023231','NGU','DONG CHINE',42,4,'cancel'),(26,_binary '','lUA','023231','NGU','DONG CHINE',42,10,'cancel'),(27,_binary '','lUA','023231','NGU','DONG CHINE',42,13,'cancel'),(28,_binary '','lUA','023231','NGU','DONG CHINE',43,2,'cancel'),(29,_binary '','lUA','023231','NGU','DONG CHINE',43,4,'cancel'),(30,_binary '','lUA','023231','NGU','DONG CHINE',43,10,'cancel'),(31,_binary '','lUA','023231','NGU','DONG CHINE',43,13,'cancel'),(32,_binary '','Ngu','1w2e2','wded','qdadasd',42,2,'cancel'),(33,_binary '','Ngu','1w2e2','wded','qdadasd',42,4,'cancel'),(34,_binary '','Ngu','1w2e2','wded','qdadasd',42,10,'cancel'),(35,_binary '','Ngu','1w2e2','wded','qdadasd',42,13,'cancel');
+INSERT INTO `person_order` VALUES (68,_binary '','Ha','H','hH','h',2,'cancel',80,1,123213),(69,_binary '','Ha','H','hH','h',4,'cancel',80,1,123213),(70,_binary '','Ha','H','hH','h',10,'cancel',80,1,123213),(71,_binary '','Ha','H','hH','h',13,'cancel',80,1,123213),(72,_binary '','jiji','dsds','sdsds','HaNoi',2,'cancel',5,1,1000000),(73,_binary '','jiji','dsds','sdsds','HaNoi',4,'cancel',5,1,1000000),(74,_binary '','jiji','dsds','sdsds','HaNoi',10,'cancel',5,1,1000000),(75,_binary '','jiji','dsds','sdsds','HaNoi',13,'cancel',5,1,1000000),(76,_binary '','jiji','dsds','sdsds','HaNoi',2,'order',5,3,3000000),(77,_binary '','jiji','dsds','sdsds','HaNoi',4,'order',5,3,3000000),(78,_binary '','jiji','dsds','sdsds','HaNoi',10,'order',5,3,3000000),(79,_binary '','jiji','dsds','sdsds','HaNoi',13,'order',5,3,3000000),(80,_binary '','jiji','dsds','sdsds','HaNoi',2,'order',5,1,1000000),(81,_binary '','jiji','dsds','sdsds','HaNoi',4,'order',5,1,1000000),(82,_binary '','jiji','dsds','sdsds','HaNoi',10,'order',5,1,1000000),(83,_binary '','jiji','dsds','sdsds','HaNoi',13,'order',5,1,1000000),(84,_binary '','jiji','dsds','sdsds','HaNoi',2,'order',3,1,1999090),(85,_binary '','jiji','dsds','sdsds','HaNoi',4,'order',3,1,1999090),(86,_binary '','jiji','dsds','sdsds','HaNoi',10,'order',3,1,1999090),(87,_binary '','jiji','dsds','sdsds','HaNoi',13,'order',3,1,1999090);
 /*!40000 ALTER TABLE `person_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07 15:57:23
+-- Dump completed on 2019-05-07 17:02:16
