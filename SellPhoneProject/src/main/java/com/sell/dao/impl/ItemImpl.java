@@ -1,5 +1,8 @@
 package com.sell.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +10,7 @@ import com.sell.dao.ItemDAO;
 import com.sell.entity.Cart;
 import com.sell.entity.Item;
 import com.sell.entity.Product;
+import com.sell.entity.usermanager.Users;
 import com.sell.hibernate.HibernateUI;
 @Component
 public class ItemImpl implements ItemDAO {
@@ -63,6 +67,49 @@ public class ItemImpl implements ItemDAO {
 			}
 		}
 		return false;
+	}
+	
+	public List<Item> productOrdered(Cart cart){
+		List<Item> list = new ArrayList<Item>();
+		System.out.println(cart.getListItem().size());
+		for(Item item : cart.getListItem()) {
+			if(item.getStatus().equalsIgnoreCase("ordered")) {
+				list.add(item);
+			}
+		}
+		return list;
+	}
+	
+	public void DestroyOrder(int id, Cart cart) {
+		Session session = HibernateUI.getSessionFactory().openSession();
+		for(Item item : cart.getListItem()) {
+			if(item.getProduct().getId() == id) {
+				item.setStatus("No");
+				session.update(item);
+				session.beginTransaction().commit();
+				break;
+			}
+		}
+		
+		session.close();
+	}
+	
+	public void CreateOrder(List<Item> list) {
+		Session session = HibernateUI.getSessionFactory().openSession();
+		for(Item item : list) {
+			item.setStatus("ordered");
+			session.update(item);
+		}
+		session.beginTransaction().commit();
+		session.close();
+	}
+	
+	
+	public static void main(String[] args) {
+		ItemImpl impl = new ItemImpl();
+		Session session = HibernateUI.getSessionFactory().openSession();
+		Users users = session.get(Users.class, 13);
+		impl.DestroyOrder(3, users.getCart());
 	}
 
 }

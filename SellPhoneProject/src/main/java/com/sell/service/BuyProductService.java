@@ -1,5 +1,7 @@
 package com.sell.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -59,20 +61,6 @@ public class BuyProductService {
 		itemImpl.updateQuentity(productImpl.getProduct(idProduct), users.getCart(), quentity);
 	}
 	
-	public void pay(Model model, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		Integer id = (Integer) session.getAttribute("user_id");
-		Users users = usersImpl.getUsers(id);
-		int sumMoney = 0;
-		for(Item i : users.getCart().getListItem()) {
-			System.out.println(sumMoney);
-			sumMoney += (i.getProduct().getPrice() * i.getNumberOfProduct());
-		}
-		System.out.println(sumMoney);
-		model.addAttribute("pay", "pay");
-		model.addAttribute("sumMoney", sumMoney);
-	}
-	
 	public void cart(Model model, HttpServletRequest request) {
 		HttpSession httpSession = request.getSession();
 		Integer id_user = (Integer) httpSession.getAttribute("user_id");
@@ -93,6 +81,36 @@ public class BuyProductService {
 			}
 		}
 		return false;
+	}
+	
+	public void pay(HttpServletRequest request, Model model) {
+		HttpSession httpSession = request.getSession();
+		Integer id = (Integer) httpSession.getAttribute("user_id");
+		Users users = usersImpl.getUsers(id);
+		List<Item> listItem = users.getCart().getListItem();
+		int sumMoney = 0;
+		for(Item item: listItem) {
+			sumMoney += (item.getProduct().getPrice() * item.getNumberOfProduct());
+		}
+		
+		System.out.println("SUmMoney: "+sumMoney);
+		model.addAttribute("sumMoney", sumMoney);
+		model.addAttribute("listItem", listItem);
+	}
+	
+	public void Ordered(HttpServletRequest request, Model model) {
+		HttpSession httpSession = request.getSession();
+		Integer id = (Integer) httpSession.getAttribute("user_id");
+		Users users = usersImpl.getUsers(id);
+		List<Item> list = itemImpl.productOrdered(users.getCart());
+		model.addAttribute("listProducOrdered", list);
+	}
+	
+	public void destroyOrder(int idProduct, HttpServletRequest request) {
+		HttpSession httpSession = request.getSession();
+		Integer id = (Integer) httpSession.getAttribute("user_id");
+		Users users = usersImpl.getUsers(id);
+		itemImpl.DestroyOrder(id, users.getCart());
 	}
 	
 	public static void main(String[] args) {

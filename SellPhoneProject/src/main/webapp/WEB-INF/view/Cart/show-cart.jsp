@@ -7,11 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.text.DecimalFormat"%>
 <html>
 <head>
 <title>Title</title>
 </head>
 <body>
+	<%
+		DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+	%>
 	<c:forEach var="item" items="${ users.cart.listItem }">
 
 		<div class="row">
@@ -28,7 +32,9 @@
 						<h6>Tên sản phẩm: ${ item.product.name }</h6>
 						<p>ID: ${ item.product.id }</p>
 						<p>
-							Giá: <span id="price-${ item.product.id }">${ item.product.price }</span>
+							<c:set var="price" value="${ item.product.price }"></c:set>
+
+							Giá: <span id="price-${ item.product.id }"><%=decimalFormat.format(pageContext.getAttribute("price")) + " VNĐ"%></span>
 						</p>
 					</div>
 					<div class="col-sm-3">
@@ -67,9 +73,9 @@
 										$("#sum-${ item.product.id }")
 												.text(sum);
 									});
-							var sum = 0;
 							$("#remove-${ item.product.id }").click(
 									function() {
+										var sum = 0;
 										var price = $(
 												"#price-${ item.product.id }")
 												.text();
@@ -92,6 +98,7 @@
 				<div class="row border-top">
 					<p class="mt-4 mb-4">
 						Tổng tiền: <span id="sum-${ item.product.id }"></span>
+
 					</p>
 				</div>
 			</div>
@@ -101,15 +108,19 @@
 	</c:forEach>
 
 	<div class="d-flex justify-content-center">
-		<a href="pay" class="btn btn-primary align-content-center mb-4">Thanh Toán Khi Nhận Hàng</a><p>    </p>
-			<a href="pay" id="payLive" class="btn btn-primary align-content-center mb-4">Thanh Toán Trực Tuyến</a>
+		<a href="pay" class="btn btn-primary align-content-center mb-4">Thanh
+			Toán Khi Nhận Hàng</a>
+		<p></p>
+		<a href="pay" id="payLive"
+			class="btn btn-primary align-content-center mb-4">Thanh Toán Trực
+			Tuyến</a>
 	</div>
 	<c:if test='${ pay == "pay" }'>
 		<p>Tổng tiền: ${ sumMoney }</p>
 	</c:if>
 	<script type="text/javascript">
 		var payLive = document.getElementById("payLive");
-		payLive.onclick = function(){
+		payLive.onclick = function() {
 			alert("Chức năng đang trong quá trình phát triển");
 			return false;
 		}

@@ -17,6 +17,8 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/cart"/>
+            <mvc:mapping path="/pay"/>
+            <mvc:mapping path="/ordered"/>
             <mvc:exclude-mapping path="/login"/>
             <bean class="com.sell.interceptor.Login"/>
         </mvc:interceptor>

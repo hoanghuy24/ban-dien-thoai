@@ -55,7 +55,6 @@ public class BuyProductController {
 	@RequestMapping("cart")
 	public String cart(Model model, HttpServletRequest request) {
 		buyProductService.cart(model, request);
-		buyProductService.pay(model, request);
 		return "Cart/show-cart";
 	}
 	
@@ -74,8 +73,8 @@ public class BuyProductController {
 	
 	@RequestMapping("pay")
 	public String pay(Model model, HttpServletRequest request) {
-		buyProductService.pay(model, request);
-		return "redirect:cart";
+		buyProductService.pay(request, model);
+		return "Cart/pay";
 	}
 
 	@RequestMapping(value = "login-buy-{id}", method = RequestMethod.GET)
@@ -97,6 +96,17 @@ public class BuyProductController {
 		}
 		redirectAttributes.addAttribute("error", "Wrong Username or Password !!!");
 		return "redirect:/login-buy-" + id;
+	}
+	
+	@RequestMapping("ordered")
+	public String ordered(HttpServletRequest request, Model model) {
+		buyProductService.Ordered(request, model);
+		return "Cart/Product-Ordered";
+	}
+	@RequestMapping("destroy-order-{id}")
+	public String destroyOrder(@PathVariable("id")int id, HttpServletRequest request) {
+		buyProductService.destroyOrder(id, request);
+		return "redirect:ordered";
 	}
 
 }

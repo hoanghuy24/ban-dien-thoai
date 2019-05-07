@@ -17,6 +17,8 @@ public class Item {
 	private int id;
 	@Column
 	private int numberOfProduct;
+	@Column
+	private String status;
 	@ManyToOne
 	@JoinColumn(name = "id_product")
 	private Product product;
@@ -24,9 +26,10 @@ public class Item {
 	@JoinColumn(name = "id_cart")
 	private Cart cart;
 
-	public Item(int numberOfProduct, Product product, Cart cart) {
+	public Item(int numberOfProduct, String status, Product product, Cart cart) {
 		super();
 		this.numberOfProduct = numberOfProduct;
+		this.status = status;
 		this.product = product;
 		this.cart = cart;
 	}
@@ -49,6 +52,14 @@ public class Item {
 
 	public void setNumberOfProduct(int numberOfProduct) {
 		this.numberOfProduct = numberOfProduct;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Product getProduct() {

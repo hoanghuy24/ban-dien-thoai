@@ -52,8 +52,9 @@
                     <div class="col-md-3">
                     	<c:set var="name" value="${ sessionScope.user.username }"></c:set>
                         <a class="cart-icon" href="${ home}/cart" id="cart">Giỏ hàng - ${ name }  <i class="fas fa-shopping-cart"></i></a>
-                        <a class="cart-icon" href="${ home}/logout" id="cart">Đăng xuất</a>
+                        <br><a class="cart-icon" href="${ home}/logout" id="cart">Đăng xuất</a>
                     </div>
+                    <a href="${ home }/ordered">Sản phẩm đã đặt</a>
                 </c:if>
                 <c:if test="${ sessionScope.user_id == null || sessionScope.user == null }">
                 	 <a class="cart-icon" href="${ home}/login" id="cart">Đăng nhập<i class="fas fa-shopping-cart"></i></a>
