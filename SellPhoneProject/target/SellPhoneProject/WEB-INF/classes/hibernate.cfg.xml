@@ -19,5 +19,6 @@
 			<mapping class="com.sell.entity.usermanager.Role"/>
 			<mapping class="com.sell.entity.Cart"/>
 			<mapping class="com.sell.entity.Item"/>
+			<mapping class="com.sell.entity.PersonOrder"/>
     	</session-factory>
     </hibernate-configuration>

@@ -270,3 +270,22 @@ footer .copy {
     right: 10%;
     cursor: pointer;
 }
+.cart-bar{
+    position: relative;
+}
+.drop{
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 11px;
+    position: absolute;
+    display: none;
+    transition: 1s;
+
+}
+div.col-md-3.card-bar:hover > div{
+    display: block;
+    transition: 1s;
+}
+
+

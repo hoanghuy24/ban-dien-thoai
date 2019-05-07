@@ -26,6 +26,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
+    <link href="<c:url value="/resources/img/logo.jpg"/>" rel="icon" type="image/x-icon"/>
 </head>
 <body>
 <header>
@@ -38,7 +39,6 @@
                 <div class="col-md-3">
                     <a href="${ home }"> <i class="fas fa-home"
                                             style="color: white; font-size: 30px; text-align: center; line-height: 100%;"></i>
-                                            <img src="resources/img/logo.jpg" width="50px" height="50px">
                     </a>
                 </div>
                 <div class="col-md-6">
@@ -48,17 +48,26 @@
                         <button>Tìm kiếm</button>
                     </form>
                 </div>
+
+                <%--                Cart--%>
                 <c:if test="${ sessionScope.user_id != null && sessionScope.user != null }">
-                    <div class="col-md-3">
-                    	<c:set var="name" value="${ sessionScope.user.username }"></c:set>
-                        <a class="cart-icon" href="${ home}/cart" id="cart">Giỏ hàng - ${ name }  <i class="fas fa-shopping-cart"></i></a>
-                        <br><a class="cart-icon" href="${ home}/logout" id="cart">Đăng xuất</a>
+                    <div class="col-md-3 card-bar">
+                        <a class="cart-icon" href="${ home}/cart" id="cart"><small>Giỏ hàng - ${ sessionScope.user.username }
+                            <i class="fas fa-shopping-cart"></i></small>
+                        </a>
+                        <div class="drop shadow-sm p-3 mb-5 bg-white rounded">
+                            <a href="${ home }/ordered"><small>Sản phẩm đã đặt</small></a><br>
+                            <a href="${ home}/logout"><small>Đăng xuất</small></a>
+                        </div>
                     </div>
-                    <a href="${ home }/ordered">Sản phẩm đã đặt</a>
+
                 </c:if>
                 <c:if test="${ sessionScope.user_id == null || sessionScope.user == null }">
-                	 <a class="cart-icon" href="${ home}/login" id="cart">Đăng nhập<i class="fas fa-shopping-cart"></i></a>
+                    <a class="cart-icon" href="${ home}/login" id="cart">Đăng nhập<i
+                            class="fas fa-shopping-cart"></i></a>
                 </c:if>
+                <%--                end cart--%>
+
             </div>
         </div>
     </div>
@@ -68,7 +77,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="container">
-    <%-- end button menu mobile--%>
+        <%-- end button menu mobile--%>
         <!--menu-->
         <div class="row">
             <nav class="collapse navbar-collapse" id="main-menu">
@@ -125,22 +134,22 @@
 
 <%--button up--%>
 <div class="btn btn-danger btn-up"><i class='fas fa-chevron-up'></i></div>
-    <script>
-        $(".btn-up").hide();
-        $(function () {
-           $(window).scroll(function () {
-               var p = $(window).scrollTop();
-               if(p > 100){
-                   $(".btn-up").show(500);
-               }else{
-                   $(".btn-up").hide(500);
-               }
-           });
-           $(".btn-up").click(function () {
-               $("html, body").animate({ scrollTop : 0}, 500);
-           });
+<script>
+    $(".btn-up").hide();
+    $(function () {
+        $(window).scroll(function () {
+            var p = $(window).scrollTop();
+            if (p > 100) {
+                $(".btn-up").show(500);
+            } else {
+                $(".btn-up").hide(500);
+            }
         });
-    </script>
+        $(".btn-up").click(function () {
+            $("html, body").animate({scrollTop: 0}, 500);
+        });
+    });
+</script>
 <%--end button up--%>
 </body>
 </html>
