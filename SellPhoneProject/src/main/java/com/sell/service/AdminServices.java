@@ -39,4 +39,5 @@ public class AdminServices {
         redirectAttributes.addAttribute("user",profile.getUsersProfile(id));
         return "redirect:/user";
     }
+
 }

@@ -13,7 +13,16 @@
 		<c:input path="username"></c:input><c:errors path="username"></c:errors><br>
 		<c:input path="password"/><c:errors path="password"></c:errors>
 		<input type="submit" value="Test">
+		<p id="messages"></p>
 	</c:form>
-	
+	<script>
+		function load_ajax() {
+			$.ajax({
+				url : "xuly",
+				dataType : "text",
+
+			});
+		}
+	</script>
 </body>
 </html>

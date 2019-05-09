@@ -175,6 +175,14 @@
 
         return true;
     }
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function (ev) {
+        if(ajax.readyState == 4 && ajax.status == 200){
+
+        }
+        ajax.open("method", "url", true);
+        ajax.send();
+    }
 </script>
 </body>
 </html>

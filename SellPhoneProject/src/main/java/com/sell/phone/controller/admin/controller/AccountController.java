@@ -1,24 +1,29 @@
 package com.sell.phone.controller.admin.controller;
 
 import com.sell.dao.admin.impl.UserProfileImpl;
+import com.sell.dao.admin.impl.UsersImpl;
+import com.sell.entity.usermanager.Users;
 import com.sell.service.AdminServices;
+import com.sell.service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 @Controller
-public class AdminController {
+public class AccountController {
     @Autowired
     AdminServices adminServices;
     @Autowired
     UserProfileImpl profile;
-
+    @Autowired
+    UsersImpl userimpl;
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@RequestParam(value = "msg", required = false) String msg, Model model, HttpServletRequest request) {
         if(request.getSession().getAttribute("user_id") != null){
@@ -48,5 +53,30 @@ public class AdminController {
         request.getSession().removeAttribute("user_id");
         request.getSession().removeAttribute("user");
         return "redirect:/";
+    }
+    @GetMapping("/register")
+    public String register(Model model){
+        model.addAttribute("newUser", new Users());
+        return "/admin/register";
+    }
+    @PostMapping("/register")
+    public String register(@Valid @ModelAttribute("newUser") Users users, BindingResult result, HttpServletResponse response, Model model){
+        response.setCharacterEncoding("UTF-8");
+        if(result.hasErrors()){
+            return "/admin/register";
+        }else{
+            Users users1 = users;
+            if(userimpl.registerUsers(users) == 1) {
+                model.addAttribute("msg", "Dang ky thanh cong");
+                return "/admin/register";
+            }else{
+                model.addAttribute("msg", "Dang ky that bai");
+                return "/admin/register";
+            }
+        }
+    }
+    @RequestMapping("/show")
+    public String info(@ModelAttribute("newUser") Users users){
+        return "/admin/info";
     }
 }

@@ -280,15 +280,54 @@ footer .copy {
     border-radius: 11px;
     position: absolute;
     display: none;
+    top: 40px;
     transition: 1s;
+    z-index: 100;
 
 }
 div.col-md-3.card-bar:hover > div{
     display: block;
     transition: 1s;
 }
+div.col-md-3.card-bar:hover > div.arrow-card{
+    display: block;
+}
+div.col-md-3.card-bar > div.arrow-card:hover + div{
+    display: block;
 
+}
+.arrow-card{
+    position: absolute;
+    top: 30px;
+    left: 36px;
+    width: 0px;
+    height: 10px;
+    border-bottom: 10px solid white;
+    border-right: 10px solid #ffffff00;
+    border-left: 10px solid;
+    display: none;
+}
 .btn-cancel{
     right: 15px;
     bottom: 0;
+}
+ /*css register*/
+.notifi{
+    position: relative;
+    overflow: hidden;
+}
+.error{
+    position: absolute;
+    right: -20px;
+    top: 6px;
+    transition: 1s;
+    cursor: pointer;
+}
+.show-error{
+    right: 10px;
+    transition: 1s;
+}
+.show-error-server{
+    color: red;
+    font-size: small;
 }
