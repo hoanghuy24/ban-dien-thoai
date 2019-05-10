@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/sell/entity/usermanager/Users.java=UTF-8
 encoding//src/main/java/com/sell/interceptor/CustomInterceptorAdmin.java=UTF-8
 encoding//src/main/java/com/sell/interceptor/Login.java=UTF-8
 encoding//src/main/java/com/sell/service/Search.java=UTF-8

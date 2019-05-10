@@ -16,11 +16,11 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Length(max = 20, min = 5, message = "Tên tài khoản  phải lớn hơn 5 ký tự và nhỏ hơn 20 ký tự")
+    @Length(max = 20, min = 5, message = "TĂªn tĂ i khoáº£n  pháº£i lá»›n hÆ¡n 5 kĂ½ tá»± vĂ  nhá»� hÆ¡n 20 kĂ½ tá»±")
     @Column
     private String username;
-    @NotNull(message = "Không được rỗng")
-    @NotEmpty(message = "Không được để trống")
+    @NotNull(message = "KhĂ´ng Ä‘Æ°á»£c rá»—ng")
+    @NotEmpty(message = "KhĂ´ng Ä‘Æ°á»£c Ä‘á»ƒ trá»‘ng")
     @Column
     private String password;
     @Column
@@ -36,6 +36,7 @@ public class Users {
     List<PersonOrder> listPersonOrder;
 
     public UserProfile getUserProfile() {
+    	
         return userProfile;
     }
 

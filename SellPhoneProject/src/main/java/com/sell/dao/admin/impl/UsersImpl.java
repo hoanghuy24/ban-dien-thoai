@@ -2,6 +2,7 @@ package com.sell.dao.admin.impl;
 
 import com.sell.dao.admin.UsersDAO;
 import com.sell.entity.Cart;
+import com.sell.entity.usermanager.Role;
 import com.sell.entity.usermanager.UserProfile;
 import com.sell.entity.usermanager.Users;
 import com.sell.hibernate.HibernateUI;
@@ -61,12 +62,15 @@ public class UsersImpl implements UsersDAO {
 		Cart cart = new Cart("", users);
 		UserProfile profile = new UserProfile(users);
 		profile.setEmail(users.getUserProfile().getEmail());
+		Role role = session.get(Role.class, 1);
+		users.setId_role(role);
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
 			session.save(users);
 			session.save(cart);
 			session.save(profile);
+			
 			transaction.commit();
 			return 1;
 		} catch (Exception e) {
