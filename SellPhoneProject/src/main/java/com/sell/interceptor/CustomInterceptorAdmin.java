@@ -19,8 +19,10 @@ public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 		if(request.getSession().getAttribute("user_id") == null) {
 			request.setAttribute("msg", "Vui lòng đăng nhập ");
 			response.sendRedirect(request.getContextPath()+"/login");
+			return false;
+		}else{
+		return true;
 		}
-		return false;
 	}
 
 	@Override
