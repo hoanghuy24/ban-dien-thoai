@@ -2,6 +2,7 @@ package com.sell.phone.controller.admin.controller;
 
 import com.sell.dao.admin.impl.UserProfileImpl;
 import com.sell.dao.admin.impl.UsersImpl;
+import com.sell.entity.usermanager.UserProfile;
 import com.sell.entity.usermanager.Users;
 import com.sell.service.AdminServices;
 import com.sell.service.UserServices;
@@ -65,12 +66,11 @@ public class AccountController {
         if(result.hasErrors()){
             return "/admin/register";
         }else{
-            Users users1 = users;
             if(userimpl.registerUsers(users) == 1) {
-                model.addAttribute("msg", "Dang ky thanh cong");
-                return "/admin/register";
+                model.addAttribute("msg", "Đăng ký thành công !");
+                return "/admin/login";
             }else{
-                model.addAttribute("msg", "Dang ky that bai");
+                model.addAttribute("msg", "Đăng ký thất bại, Vui lòng kiếm tra lại các trường thông tin");
                 return "/admin/register";
             }
         }

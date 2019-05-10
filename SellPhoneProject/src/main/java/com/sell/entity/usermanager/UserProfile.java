@@ -27,7 +27,7 @@ public class UserProfile {
 	private Users user_id;
 	@Email(message = "Không đúng định dạng email")
 	@NotEmpty(message = "Không thể trống")
-	@NotBlank
+	@NotBlank(message = "Không thể trống")
 	@Column
 	private String email;
 	@Column

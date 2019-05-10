@@ -53,8 +53,16 @@ public class Users {
 
     @Override
     public String toString() {
-        return "UsersDAO{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\''
-                + ", id_role=" + id_role + '}';
+        return "Users{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                ", id_role=" + id_role +
+                ", cart=" + cart +
+                ", userProfile=" + userProfile +
+                ", listPersonOrder=" + listPersonOrder +
+                '}';
     }
 
     public int getId() {

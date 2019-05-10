@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <form:label path="username">Tên tài khoản (*): </form:label>
                     <div class="notifi">
-                        <form:input type="text" id="user" class="form-control" autocomplete="off"
+                        <form:input  required="true" type="text" id="user" class="form-control" autocomplete="off"
                                     path="username"/>
                         <p class="error" id="error-user"></p>
                         <form:errors cssClass="show-error-server us" path="username"/>
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <form:label path="password">Mật khẩu (*): </form:label>
                     <div class="notifi">
-                        <form:input class="form-control" id="password" autocomplete="off"
+                        <form:input  required="true" class="form-control" id="password" autocomplete="off"
                                     type="password"
                                     path="password"/>
                         <p class="error error-pass"></p>
@@ -47,14 +47,14 @@
                 <div class="form-group">
                     <label>Nhập lại mật khẩu (*): </label>
                     <div class="notifi">
-                        <input class="form-control" id="rpassword" autocomplete="off" type="password"/>
+                        <input class="form-control" id="rpassword" required="true" autocomplete="off" type="password"/>
                         <p class="error error-pass"></p>
                     </div>
                 </div>
                 <div class="form-group">
                     <form:label path="userProfile.email">Email (*): </form:label>
                     <div class="notifi">
-                        <form:input id="email" type="email" class="form-control" autocomplete="false" path="userProfile.email"/>
+                        <form:input id="email" required="true" type="email" class="form-control" autocomplete="false" path="userProfile.email"/>
                         <p class="error error-email"></p>
                         <form:errors cssClass="show-error-server em" path="userProfile.email"/>
                     </div>
@@ -62,17 +62,12 @@
                 <div class="d-flex justify-content-center mb-4">
                     <input type="submit" class="btn btn-danger" id="ok" value="Đăng ký">
                 </div>
-
+                <div class="row border-top mt-4 mb-4 f-flex justify-content-center">
+                    <small style="color: red">${ msg }</small>
+                </div>
             </div>
 
             <div class="col-sm-4">
-                <h1>${ msg}</h1>
-<%--                <br>--%>
-<%--                <form:errors cssClass="show-error-server" path="username"/>--%>
-<%--                <br>--%>
-<%--                <form:errors cssClass="show-error-server" path="password"/>--%>
-<%--                <br>--%>
-<%--                <form:errors cssClass="show-error-server" path="userProfile.email"/>--%>
             </div>
         </div>
     </form:form>

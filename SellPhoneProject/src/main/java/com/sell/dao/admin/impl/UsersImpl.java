@@ -91,10 +91,10 @@ public class UsersImpl implements UsersDAO {
 		session.close();
 		return users;
 	}
-//
-//	public static void main(String[] args) {
-//		UsersImpl users = new UsersImpl();
-//		users.registerUsers(new Users("rrrrrr", "2403"));
-//		System.out.println("OK");
-//	}
+
+	public static void main(String[] args) {
+		UsersImpl users = new UsersImpl();
+		Users users1 = new Users();
+		users.registerUsers(users1);
+	}
 }

@@ -260,20 +260,24 @@ footer .copy {
     text-decoration: none;
     transition: .5s;
 }
-.cart-icon:hover{
+
+.cart-icon:hover {
     color: cyan;
     transition: .5s;
 }
-.btn-up{
+
+.btn-up {
     position: fixed;
     bottom: 10%;
     right: 10%;
     cursor: pointer;
 }
-.cart-bar{
+
+.cart-bar {
     position: relative;
 }
-.drop{
+
+.drop {
     width: 100%;
     background-color: white;
     padding: 10px;
@@ -285,18 +289,22 @@ footer .copy {
     z-index: 100;
 
 }
-div.col-md-3.card-bar:hover > div{
+
+div.col-md-3.card-bar:hover > div {
     display: block;
     transition: 1s;
 }
-div.col-md-3.card-bar:hover > div.arrow-card{
+
+div.col-md-3.card-bar:hover > div.arrow-card {
     display: block;
 }
-div.col-md-3.card-bar > div.arrow-card:hover + div{
+
+div.col-md-3.card-bar > div.arrow-card:hover + div {
     display: block;
 
 }
-.arrow-card{
+
+.arrow-card {
     position: absolute;
     top: 30px;
     left: 36px;
@@ -307,27 +315,39 @@ div.col-md-3.card-bar > div.arrow-card:hover + div{
     border-left: 10px solid;
     display: none;
 }
-.btn-cancel{
+
+.btn-cancel {
     right: 15px;
     bottom: 0;
 }
- /*css register*/
-.notifi{
+
+/*css register*/
+.notifi {
     position: relative;
     overflow: hidden;
 }
-.error{
+
+.error {
     position: absolute;
     right: -20px;
     top: 6px;
     transition: 1s;
     cursor: pointer;
 }
-.show-error{
+
+.show-error {
     right: 10px;
     transition: 1s;
 }
-.show-error-server{
+
+.show-error-server {
     color: red;
     font-size: small;
+}
+
+.label-login-register {
+    color: white;
+    margin-left: 5px;
+
+
 }
