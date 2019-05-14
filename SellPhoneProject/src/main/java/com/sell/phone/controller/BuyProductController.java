@@ -1,6 +1,8 @@
 package com.sell.phone.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -88,9 +90,9 @@ public class BuyProductController {
 	@RequestMapping(value = "login-buy", method = RequestMethod.POST)
 	public String loginBuy(@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("id") int id, Model model, HttpServletRequest request,
-			RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes, HttpServletResponse response) {
 		Users users = new Users(username, password);
-		if (buyProductService.check(users, request)) {
+		if (buyProductService.check(users, request, response)) {
 			Product product = productImpl.getProduct(id);
 			return "redirect:/" + product.getCategory().getCategory() + "/" + product.getCode() + "-" + id;
 		}
@@ -115,6 +117,11 @@ public class BuyProductController {
 			@RequestParam("address") String addressOrder) {
 		buyProductService.createOrder(request, fullName, phone, ortherInformation, addressOrder);
 		return "redirect:ordered";
+	}
+	
+	@RequestMapping("/admin/tets-form")
+	public String te() {
+		return "admin/form-add";
 	}
 
 }

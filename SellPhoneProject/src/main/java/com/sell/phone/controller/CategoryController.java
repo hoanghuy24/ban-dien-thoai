@@ -2,16 +2,15 @@ package com.sell.phone.controller;
 
 import com.sell.dao.impl.CategoryImpl;
 import com.sell.dao.impl.ProductImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sell.service.CategoryService;
-import com.sell.service.IDCategory;
 
 @Controller
 public class CategoryController {
@@ -140,5 +139,12 @@ public class CategoryController {
     public String redirectNokia() {
         System.out.println("Here");
         return "redirect:/nokia";
+    }
+    
+    @RequestMapping("{product}-{id}")
+    public String ProductView(@PathVariable("id") int id, Model model) {
+    	categoryService.ProductView(model, id);
+    	
+    	return "show-info";
     }
 }

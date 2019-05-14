@@ -1,0 +1,194 @@
+#file-1{
+    display: none;
+}
+
+.form-add #button{
+    width: 120px;
+    background-color: aliceblue;
+    border: 1px solid gray;
+}
+
+#file-2{
+    display: none;
+}
+#file-3{
+    display: none;
+}
+#file-4{
+    display: none;
+}
+
+#file-del-1{
+    display: inline;
+    display: none;
+}
+#file-del-2{
+    display: inline;
+    display: none;
+}
+#file-del-3{
+    display: inline;
+    display: none;
+}
+#file-del-4{
+    margin-bottom: 30px;
+    display: none;
+}
+
+.form-add{
+    width: 600px;
+}
+.container-form-add{
+   display: flex;
+   justify-content: center
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.information input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 3px;
+}
+#description{
+    width: 100%;
+    display: block;
+    height: 70px;
+}
+
+.information{
+    border: 1px solid gray;
+    width: 800px;
+    padding: 20px;
+    border-radius: 4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.price-discount{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.price-discount #name{
+    width: 35%;
+    margin-right: 30px;
+}
+.price-discount #name input{
+    width: 100%
+}
+
+.price-discount #discount{
+    width:60%;
+}
+.price-discount #discount input{
+    width: 100%;
+}
+
+.list-image{
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px;
+}
+.list-image div{
+    margin-top: 10px;
+    display: flex;
+}
+
+.list-image div input{
+    border: 0;
+    margin-bottom: 10px;
+    padding:  10px;
+}
+
+.list-image div button img{
+    width: 20px;
+    height: 30px
+}
+.list-image div button{
+    background-color: white;
+    border: 0
+}
+
+#avatar{
+    border: 0;
+    padding-bottom: 30px;
+}
+
+.category select{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+input:hover{
+    border: 2px solid dodgerblue;
+    transition: 0.2s
+}
+
+textarea{
+    border-radius: 3px;
+}
+
+textarea:hover{
+    border: 2px solid dodgerblue;
+    transition: 0.2s
+}
+
+.add button{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid gray;
+    margin-top: 20px;
+}
+
+#button:hover{
+    background-color: yellowgreen
+}
+
+#button{
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.add button:hover{
+    background-color: yellowgreen
+}
+
+.ram-memory{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ram-memory .ram{
+    width: 30%;
+}
+
+.memory{
+    width: 30%;
+}
+
+.camera{
+    width: 30%;
+}
+.long-description{   
+    width: 100%;
+}
+
+.long-description textarea{
+    margin-top: 10px;
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+}

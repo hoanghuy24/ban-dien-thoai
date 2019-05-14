@@ -5,17 +5,16 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.sell.dao.impl.ProductImpl;
 import com.sell.entity.Category;
 import com.sell.entity.Product;
 import com.sell.hibernate.HibernateUI;
 @Service
 public class PaginationService {
 	
+	@SuppressWarnings("unchecked")
 	public List<Product> pagination(int page, int idCategory, int total) {
 		int first = 0;
 		if(page > 1) {

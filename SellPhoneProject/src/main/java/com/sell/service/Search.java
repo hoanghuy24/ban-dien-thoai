@@ -1,8 +1,6 @@
 package com.sell.service;
 
 import java.util.List;
-import java.util.regex.Pattern;
-
 import javax.persistence.Query;
 
 import org.hibernate.Session;

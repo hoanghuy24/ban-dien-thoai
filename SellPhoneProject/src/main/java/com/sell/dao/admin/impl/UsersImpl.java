@@ -58,7 +58,6 @@ public class UsersImpl implements UsersDAO {
 		Session session = factory.openSession();
 		Cart cart = new Cart("", users);
 		UserProfile userProfile = new UserProfile();
-		UserProfile profile = new UserProfile(users);
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();

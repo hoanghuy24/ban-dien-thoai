@@ -4,11 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.sell.entity.Cart;
-import com.sell.entity.Item;
-import com.sell.entity.Product;
-import com.sun.xml.fastinfoset.algorithm.IEEE754FloatingPointEncodingAlgorithm;
-
 public class Main {
     public static void main(String[] args) {
     	SessionFactory factory = new Configuration().configure().buildSessionFactory();

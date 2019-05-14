@@ -16,6 +16,11 @@ public class MainController {
 	@RequestMapping("/")
 	public String index(Model model, HttpServletRequest request) {
 		homeController.index(model, request);
+		if(homeController.checkCookieService(request)) {
+			model.addAttribute("log", true);
+			return "/Home";
+		}
+		model.addAttribute("log", false);
 		return "/Home";
 	}
 	@RequestMapping("/show-info")

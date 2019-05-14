@@ -11,6 +11,7 @@ import com.sell.hibernate.HibernateUI;
 @Component
 public class CategoryImpl implements CategoryDAO{
 	//Lấy danh sách các category
+	@SuppressWarnings("unchecked")
 	public List<Category> getListCategory() {
 		Session session = HibernateUI.getSessionFactory().openSession();
 		List<Category> list = session.createQuery("From " + Category.class.getName()).getResultList();

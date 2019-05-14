@@ -24,16 +24,16 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
     <link href="<c:url value="/resources/img/logo.jpg"/>" rel="icon" type="image/x-icon"/>
 </head>
 <body>
-<header>
-    <c:set var="home" value="${ pageContext.request.contextPath }"
+ <header>
+   <c:set var="home" value="${ pageContext.request.contextPath }"
            scope="application">
     </c:set>
-    <div class="container-fluid">
+    
+   <div class="container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -49,8 +49,8 @@
                     </form>
                 </div>
 
-                <%--                Cart--%>
-                <c:if test="${ sessionScope.user_id != null && sessionScope.user != null }">
+                               Cart
+                <c:if test="${ sessionScope.user_id != null }">
                     <div class="col-md-3 card-bar">
                         <a class="cart-icon" href="${ home}/cart" id="cart"><small>Giỏ hàng - ${ sessionScope.user.username }
                             <i class="fas fa-shopping-cart"></i></small>
@@ -62,11 +62,10 @@
                     </div>
 
                 </c:if>
-                <c:if test="${ sessionScope.user_id == null || sessionScope.user == null }">
+                <c:if test="${ sessionScope.user_id == null }">
                     <a class="cart-icon" href="${ home}/login" id="cart"><small>Đăng nhập<i
                             class="fas fa-shopping-cart"></i></small></a>
                 </c:if>
-                <%--                end cart--%>
 
             </div>
         </div>
@@ -77,7 +76,6 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="container">
-        <%-- end button menu mobile--%>
         <!--menu-->
         <div class="row">
             <nav class="collapse navbar-collapse" id="main-menu">

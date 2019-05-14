@@ -1,26 +1,63 @@
 package com.sell.interceptor;
 
 import com.sell.dao.admin.impl.UserProfileImpl;
+import com.sell.dao.admin.impl.UsersImpl;
+import com.sell.entity.usermanager.Users;
+import com.sell.security.MD5;
+import com.sell.service.AdminServices;
+import com.sell.service.HomeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 	@Autowired
 	UserProfileImpl profile;
 
+	@Autowired
+	UsersImpl usersImpl;
+
+	@Autowired
+	HomeService homeService;
+
+	@Autowired
+	AdminServices adminService;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		System.out.println("PreHandle");
-		if(request.getSession().getAttribute("user_id") == null) {
-			request.setAttribute("msg", "Vui lòng đăng nhập ");
-			response.sendRedirect(request.getContextPath()+"/login");
+		MD5 md5 = new MD5();
+		System.out.println(request.getSession().getAttribute("user_id"));
+		Cookie cookie[] = request.getCookies();
+		if (cookie != null) {
+			for (int i = 0; i < cookie.length; i++) {
+
+				if (cookie[i].getName().equals("key")) {
+
+					for (Users u : usersImpl.getListUsers()) {
+
+						System.out.println(cookie[i].getValue());
+						System.out.println(md5.convertToMessageDigest(u.getUsername()));
+						System.out.println(u.getId());
+
+						if (md5.convertToMessageDigest(u.getUsername()).equals(cookie[i].getValue())) {
+							request.getSession().setAttribute("user_id", u.getId());
+							request.getSession().setAttribute("user", u);
+							request.getSession().setMaxInactiveInterval(60 * 60 * 24);
+							return true;
+						}
+					}
+				}
+			}
+			adminService.Logout(request, response);
 		}
-		return false;
+		return true;
 	}
 
 	@Override

@@ -47,6 +47,7 @@ public class UserProfileImpl implements UserProfileDAO {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<UserProfile> getResultList() {
 		Session session = HibernateUI.getSessionFactory().openSession();
 		return session.createQuery("FROM " + UserProfile.class.getName()).getResultList();

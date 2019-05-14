@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class AdminController {
@@ -21,14 +22,11 @@ public class AdminController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@RequestParam(value = "msg", required = false) String msg, Model model, HttpServletRequest request) {
-        if(request.getSession().getAttribute("user_id") != null){
-            return "redirect:/";
+        if(adminServices.checkCookieService(request)) {
+        	return "redirect:/";
         }
         else {
-            if (msg != null) {
-                model.addAttribute("msg", msg);
-            }
-            return "/admin/login";
+        	return "admin/login";
         }
     }
     
@@ -39,14 +37,13 @@ public class AdminController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam(value = "username") String username,
-                        @RequestParam(value = "password") String password, RedirectAttributes redirectAttributes) {
-        return adminServices.resultLogin(username, password, redirectAttributes);
+                        @RequestParam(value = "password") String password, RedirectAttributes redirectAttributes, HttpServletResponse response) {
+        return adminServices.resultLogin(username, password, redirectAttributes, response);
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        request.getSession().removeAttribute("user_id");
-        request.getSession().removeAttribute("user");
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        adminServices.Logout(request, response);
         return "redirect:/";
     }
 }

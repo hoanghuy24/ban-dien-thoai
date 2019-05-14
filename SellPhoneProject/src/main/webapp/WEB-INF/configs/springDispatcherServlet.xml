@@ -16,15 +16,15 @@
     </bean>
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/cart"/>
-            <mvc:mapping path="/pay"/>
-            <mvc:mapping path="/ordered"/>
+            <mvc:mapping path="/*"/>
             <mvc:exclude-mapping path="/login"/>
-            <bean class="com.sell.interceptor.Login"/>
+            <bean class="com.sell.interceptor.CustomInterceptorAdmin"/>
         </mvc:interceptor>
-        <mvc:interceptor>
-        	<mvc:mapping path="/admin/**"/>
-        	<bean class="com.sell.interceptor.CustomInterceptorAdmin"></bean>
-        </mvc:interceptor>
+         <mvc:interceptor>
+        	<mvc:mapping path="/cart"/>
+        	<mvc:mapping path="/pay"/>
+        	<mvc:mapping path="/admin/user"/>
+        	<bean class="com.sell.interceptor.Login"></bean>
+        </mvc:interceptor> 
     </mvc:interceptors>
 </beans>

@@ -16,6 +16,7 @@ public class ImageImpl implements ListImageDAO{
 	//Lấy danh sách các ảnh
 	public List<ListImage> getAllListImage() {
 		Session session = factory.openSession();
+		@SuppressWarnings("unchecked")
 		List<ListImage> list = session.createQuery("From " + ListImage.class.getName()).getResultList();
 		session.close();
 		return list;

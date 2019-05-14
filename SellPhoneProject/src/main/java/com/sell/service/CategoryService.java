@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import com.sell.dao.impl.ProductImpl;
+import com.sell.entity.Product;
 
 @Service
 public class CategoryService {
@@ -39,6 +40,11 @@ public class CategoryService {
 
     public void sony(Model model, int page) {
     	paginationService.Pagination(page, model, IDCategory.categorySony, IDCategory.total);
+    }
+    
+    public void ProductView(Model model, int id) {
+    	Product p = product.getProduct(id);
+    	model.addAttribute("product", p);
     }
     
 }
