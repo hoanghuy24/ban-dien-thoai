@@ -2,9 +2,13 @@ package com.sell.service;
 
 import com.sell.dao.admin.impl.UserProfileImpl;
 import com.sell.dao.admin.impl.UsersImpl;
+import com.sell.entity.Cart;
+import com.sell.entity.usermanager.Role;
 import com.sell.entity.usermanager.Users;
+import com.sell.hibernate.HibernateUI;
 import com.sell.security.MD5;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -82,6 +86,23 @@ public class AdminServices {
 		request.getSession().removeAttribute("user");
 	}
 
+	
+	public void register(Users users, HttpServletResponse response) {
+		MD5 md5 = new MD5();
+		Session session = HibernateUI.getSessionFactory().openSession();
+		Role role = session.get(Role.class, 1);
+		users.setId_role(role);
+		Cart cart = new Cart("", users);
+		session.save(cart);
+		session.save(users);
+		Cookie cookie = new Cookie("key", md5.convertToMessageDigest(users.getUsername()));
+		cookie.setMaxAge(60*60*24);
+		response.addCookie(cookie);
+		session.beginTransaction().commit();
+		session.close();
+	}
+	
+	
 	public String getProfileSession(RedirectAttributes redirectAttributes) {
 		int id = (Integer) request.getSession().getAttribute("user_id");
 		redirectAttributes.addAttribute("user", profile.getUsersProfile(id));
