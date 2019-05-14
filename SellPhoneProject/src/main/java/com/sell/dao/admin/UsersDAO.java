@@ -7,7 +7,7 @@ import java.util.List;
 public interface UsersDAO {
      boolean changeStatusUsers(Users users, int status);
      boolean changePassword(Users users, String password, String repassword);
-    boolean registerUsers(Users users);
+    int registerUsers(Users users);
     List<Users> getListUsers();
     Users getUsers(int id);
 }

@@ -51,7 +51,9 @@
 
                 <%--                Cart--%>
                 <c:if test="${ sessionScope.user_id != null && sessionScope.user != null }">
+
                     <div class="col-md-3 card-bar">
+                        <div class="arrow-card"></div>
                         <a class="cart-icon" href="${ home}/cart" id="cart"><small>Giỏ hàng - ${ sessionScope.user.username }
                             <i class="fas fa-shopping-cart"></i></small>
                         </a>
@@ -63,8 +65,7 @@
 
                 </c:if>
                 <c:if test="${ sessionScope.user_id == null || sessionScope.user == null }">
-                    <a class="cart-icon" href="${ home}/login" id="cart"><small>Đăng nhập<i
-                            class="fas fa-shopping-cart"></i></small></a>
+                    <a href="${ home}/login" class="label-login-register" id="cart">Đăng nhập</a> <a class="label-login-register" href="${ home}/register" id="cart">Đăng ký</a>
                 </c:if>
                 <%--                end cart--%>
 

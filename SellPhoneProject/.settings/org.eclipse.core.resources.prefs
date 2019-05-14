@@ -1,7 +1,12 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/hoanghuy24/ban-dien-thoai.git
 eclipse.preferences.version=1
+encoding//src/main/java/com/sell/entity/usermanager/Users.java=UTF-8
 encoding//src/main/java/com/sell/interceptor/CustomInterceptorAdmin.java=UTF-8
 encoding//src/main/java/com/sell/interceptor/Login.java=UTF-8
 encoding//src/main/java/com/sell/service/Search.java=UTF-8
+encoding//src/main/webapp/WEB-INF/view/Cart/cart.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/view/Category.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/view/Home.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/view/admin/form-add.jsp=UTF-8

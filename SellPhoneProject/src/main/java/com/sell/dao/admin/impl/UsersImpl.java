@@ -2,6 +2,7 @@ package com.sell.dao.admin.impl;
 
 import com.sell.dao.admin.UsersDAO;
 import com.sell.entity.Cart;
+import com.sell.entity.usermanager.Role;
 import com.sell.entity.usermanager.UserProfile;
 import com.sell.entity.usermanager.Users;
 import com.sell.hibernate.HibernateUI;
@@ -10,6 +11,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
 
+import javax.validation.ConstraintViolationException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Component
@@ -54,25 +57,31 @@ public class UsersImpl implements UsersDAO {
 		return false;
 	}
 
-	public boolean registerUsers(Users users) {
+	public int registerUsers(Users users) {
 		Session session = factory.openSession();
 		Cart cart = new Cart("", users);
 		UserProfile userProfile = new UserProfile();
+		UserProfile profile = new UserProfile(users);
+		profile.setEmail(users.getUserProfile().getEmail());
+		Role role = session.get(Role.class, 1);
+		users.setId_role(role);
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
 			session.save(users);
 			session.save(cart);
-			session.save(userProfile);
+			session.save(profile);
+			
 			transaction.commit();
-			return true;
+			return 1;
 		} catch (Exception e) {
 			transaction.rollback();
-			System.out.println("Add error");
-		} finally {
+			e.printStackTrace();
+			return 0;
+		}
+		finally {
 			session.close();
 		}
-		return false;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -88,9 +97,9 @@ public class UsersImpl implements UsersDAO {
 		return users;
 	}
 
-//	public static void main(String[] args) {
-//		UsersImpl users = new UsersImpl();
-//		users.registerUsers(new Users("huyabc", "2403"));
-//		System.out.println("OK");
-//	}
+	public static void main(String[] args) {
+		UsersImpl users = new UsersImpl();
+		Users users1 = new Users();
+		users.registerUsers(users1);
+	}
 }

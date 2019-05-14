@@ -1,6 +1,10 @@
 package com.sell.entity.usermanager;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Entity
 @Table(name = "user_profile")
@@ -13,7 +17,7 @@ public class UserProfile {
 	@Column(name = "last_name")
 	private String lastName;
 	@Column(name = "date")
-	private String date;
+	private Date date;
 	@Column(name = "other_detail")
 	private String otherDetail;
 	@Column
@@ -21,6 +25,9 @@ public class UserProfile {
 	@OneToOne
 	@JoinColumn(name = "id_user")
 	private Users user_id;
+	@Email(message = "Không đúng định dạng email")
+	@NotEmpty(message = "Không thể trống")
+	@NotBlank(message = "Không thể trống")
 	@Column
 	private String email;
 	@Column
@@ -132,13 +139,7 @@ public class UserProfile {
 		this.lastName = lastName;
 	}
 
-	public String getDate() {
-		return date;
-	}
 
-	public void setDate(String date) {
-		this.date = date;
-	}
 
 	public String getOtherDetail() {
 		return otherDetail;
@@ -147,17 +148,33 @@ public class UserProfile {
 	public void setOtherDetail(String otherDetail) {
 		this.otherDetail = otherDetail;
 	}
-	
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
 	public UserProfile(Users user_id) {
 		super();
+		this.firstName = "";
+		this.lastName = "";
+		this.date = new Date();
+		this.otherDetail = "";
+		this.email = "chua co email";
 		this.user_id = user_id;
 	}
 
 	public UserProfile() {
+		this.firstName = "";
+		this.lastName = "";
+		this.otherDetail = "";
+		this.user_id = new Users();
 	}
 
-	public UserProfile(String firstName, String lastName, String date, String otherDetail, Users user_id) {
+	public UserProfile(String firstName, String lastName, Date date, String otherDetail, Users user_id) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.date = date;

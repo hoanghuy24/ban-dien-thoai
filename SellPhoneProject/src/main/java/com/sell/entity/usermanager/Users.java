@@ -1,114 +1,134 @@
 package com.sell.entity.usermanager;
 
-import java.util.List;
-
-import javax.persistence.*;
-
 import com.sell.entity.Cart;
 import com.sell.entity.PersonOrder;
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class Users {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	@Column
-	private String username, password;
-	@Column
-	private int status;
-	@OneToOne
-	@JoinColumn(name = "id_role")
-	private Role id_role;
-	@OneToOne(mappedBy = "users")
-	Cart cart;
-	@OneToOne(mappedBy = "user_id")
-	UserProfile userProfile;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
-	List<PersonOrder> listPersonOrder;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Length(max = 20, min = 5, message = "TĂªn tĂ i khoáº£n  pháº£i lá»›n hÆ¡n 5 kĂ½ tá»± vĂ  nhá»� hÆ¡n 20 kĂ½ tá»±")
+    @Column
+    private String username;
+    @NotNull(message = "KhĂ´ng Ä‘Æ°á»£c rá»—ng")
+    @NotEmpty(message = "KhĂ´ng Ä‘Æ°á»£c Ä‘á»ƒ trá»‘ng")
+    @Column
+    private String password;
+    @Column
+    private int status;
+    @OneToOne
+    @JoinColumn(name = "id_role")
+    private Role id_role;
+    @OneToOne(mappedBy = "users")
+    Cart cart;
+    @OneToOne(mappedBy = "user_id")
+    private UserProfile userProfile;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
+    List<PersonOrder> listPersonOrder;
 
-	public Users(String username, String password) {
-		this.username = username;
-		this.password = password;
-	}
+    public UserProfile getUserProfile() {
+    	
+        return userProfile;
+    }
 
-	public Users(String username, String password, Role id_role) {
-		this.username = username;
-		this.password = password;
-		this.id_role = id_role;
-	}
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
 
-	public UserProfile getUserProfile() {
-		return userProfile;
-	}
+    public int getStatus() {
+        return status;
+    }
 
-	public void setUserProfile(UserProfile userProfile) {
-		this.userProfile = userProfile;
-	}
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
-	public int getStatus() {
-		return status;
-	}
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                ", id_role=" + id_role +
+                ", cart=" + cart +
+                ", userProfile=" + userProfile +
+                ", listPersonOrder=" + listPersonOrder +
+                '}';
+    }
 
-	public void setStatus(int status) {
-		this.status = status;
-	}
+    public int getId() {
+        return id;
+    }
 
-	@Override
-	public String toString() {
-		return "UsersDAO{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\''
-				+ ", id_role=" + id_role + '}';
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public Users() {
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public Role getId_role() {
+        return id_role;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setId_role(Role id_role) {
+        this.id_role = id_role;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public Cart getCart() {
+        return cart;
+    }
 
-	public Role getId_role() {
-		return id_role;
-	}
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
-	public void setId_role(Role id_role) {
-		this.id_role = id_role;
-	}
+    public List<PersonOrder> getListPersonOrder() {
+        return listPersonOrder;
+    }
 
-	public Cart getCart() {
-		return cart;
-	}
+    public void setListPersonOrder(List<PersonOrder> listPersonOrder) {
+        this.listPersonOrder = listPersonOrder;
+    }
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
+    public Users() {
+    }
 
-	public List<PersonOrder> getListPersonOrder() {
-		return listPersonOrder;
-	}
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
-	public void setListPersonOrder(List<PersonOrder> listPersonOrder) {
-		this.listPersonOrder = listPersonOrder;
-	}
+    public Users(String username, String password, Role id_role) {
+        this.username = username;
+        this.password = password;
+        this.id_role = id_role;
+    }
 
+    public Users(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
 }

@@ -20,29 +20,7 @@ public class Control {
 
 	@GetMapping("testValid")
 	public String test(Model model, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		Cookie [] cookies = request.getCookies();
-		for(Cookie c: cookies) {
-			System.out.println("Name "+c.getName());
-			System.out.println("Value: "+c.getValue());
-			if(c.getName().equals("testU")) {
-				return "Home";
-			}
-		}
-		if("11C7E22310AE860B3161BFC0EE0221F3".equals("93092CA83E2FCB9E18C24AEC871640E7")) {
-			System.out.println(true);
-		}
-		else {
-			System.out.println("Not true");
-		}
-		
-		if(session.getAttribute("test") != null) {
-			return "Home";
-		}
-		User user = new User();
-		user.setUsername("Hahahah");
-		user.setPassword("1234455");
-		model.addAttribute("user", user);
+
 		return "formValid";
 	}
 	

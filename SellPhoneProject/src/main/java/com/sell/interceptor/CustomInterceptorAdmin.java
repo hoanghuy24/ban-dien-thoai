@@ -27,7 +27,7 @@ public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 
 	@Autowired
 	AdminServices adminService;
-	
+
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -55,8 +55,8 @@ public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 					}
 				}
 			}
-			adminService.Logout(request, response);
 		}
+		adminService.Logout(request, response);
 		return true;
 	}
 

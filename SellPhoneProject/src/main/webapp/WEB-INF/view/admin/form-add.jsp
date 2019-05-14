@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Trang chủ SellPhone</title>
-    <link rel="stylesheet" href="<c:url value='/resources/css/form-add.css'></c:url>"/>
-</head>
+s</head>
 <body>
 	<div class="container-form-add">
 		<form class="form-add" action="" method="POST"

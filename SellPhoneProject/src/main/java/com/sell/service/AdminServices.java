@@ -65,6 +65,7 @@ public class AdminServices {
 
 	public void Logout(HttpServletRequest request, HttpServletResponse response) {
 		Cookie cookie[] = request.getCookies();
+		if(cookie != null) {
 		for (Cookie cookie2 : cookie) {
 			System.out.println(cookie2.getName());
 			if (cookie2.getName().equals("key")) {
@@ -76,6 +77,7 @@ public class AdminServices {
 
 			}
 		}
+		}
 		request.getSession().removeAttribute("user_id");
 		request.getSession().removeAttribute("user");
 	}
@@ -85,4 +87,5 @@ public class AdminServices {
 		redirectAttributes.addAttribute("user", profile.getUsersProfile(id));
 		return "redirect:/user";
 	}
+
 }
