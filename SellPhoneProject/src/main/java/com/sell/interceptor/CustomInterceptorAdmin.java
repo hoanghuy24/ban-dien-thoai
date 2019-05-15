@@ -31,21 +31,12 @@ public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("PreHandle");
 		MD5 md5 = new MD5();
-		System.out.println(request.getSession().getAttribute("user_id"));
 		Cookie cookie[] = request.getCookies();
 		if (cookie != null) {
 			for (int i = 0; i < cookie.length; i++) {
-
 				if (cookie[i].getName().equals("key")) {
-
 					for (Users u : usersImpl.getListUsers()) {
-
-						System.out.println(cookie[i].getValue());
-						System.out.println(md5.convertToMessageDigest(u.getUsername()));
-						System.out.println(u.getId());
-
 						if (md5.convertToMessageDigest(u.getUsername()).equals(cookie[i].getValue())) {
 							request.getSession().setAttribute("user_id", u.getId());
 							request.getSession().setAttribute("user", u);

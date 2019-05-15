@@ -31,13 +31,13 @@ public class AdminServices {
 
 	public String resultLogin(String username, String password, RedirectAttributes redirectAttributes,
 			HttpServletResponse response) {
+		MD5 md5 = new MD5();
 		for (Users users : userimpl.getListUsers()) {
-			if (username.equals(users.getUsername()) && password.equals(users.getPassword())) {
+			if (username.equals(users.getUsername()) && users.getPassword().equals(md5.convertToMessageDigest(password))) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", users.getId());
 				session.setAttribute("user", users);
 				session.setMaxInactiveInterval(60 * 60 * 12);
-				MD5 md5 = new MD5();
 				Cookie cookie = new Cookie("key", md5.convertToMessageDigest(users.getUsername()));
 				cookie.setMaxAge(60 * 60 * 12);
 				response.addCookie(cookie);
@@ -89,6 +89,7 @@ public class AdminServices {
 	
 	public void register(Users users, HttpServletResponse response) {
 		MD5 md5 = new MD5();
+		users.setPassword(md5.convertToMessageDigest(users.getPassword()));
 		Session session = HibernateUI.getSessionFactory().openSession();
 		Role role = session.get(Role.class, 1);
 		users.setId_role(role);
@@ -108,5 +109,6 @@ public class AdminServices {
 		redirectAttributes.addAttribute("user", profile.getUsersProfile(id));
 		return "redirect:/user";
 	}
-
+	
+	
 }

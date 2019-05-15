@@ -6,6 +6,8 @@ import com.sell.entity.usermanager.Role;
 import com.sell.entity.usermanager.UserProfile;
 import com.sell.entity.usermanager.Users;
 import com.sell.hibernate.HibernateUI;
+import com.sell.security.MD5;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -56,6 +58,7 @@ public class UsersImpl implements UsersDAO {
 	}
 
 	public int registerUsers(Users users) {
+		
 		Session session = factory.openSession();
 		Cart cart = new Cart("", users);
 		UserProfile userProfile = new UserProfile();
@@ -69,7 +72,6 @@ public class UsersImpl implements UsersDAO {
 			session.save(users);
 			session.save(cart);
 			session.save(profile);
-			
 			transaction.commit();
 			return 1;
 		} catch (Exception e) {
@@ -85,7 +87,9 @@ public class UsersImpl implements UsersDAO {
 	@SuppressWarnings("unchecked")
 	public List<Users> getListUsers() {
 		Session session = factory.openSession();
-		return session.createQuery("FROM Users").getResultList();
+		List<Users> listUser = session.createQuery("FROM Users").getResultList();
+		session.close();
+		return listUser;
 	}
 
 	public Users getUsers(int id) {

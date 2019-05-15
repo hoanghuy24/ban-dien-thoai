@@ -6,17 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Trang chủ SellPhone</title>
-s</head>
+</head>
 <body>
 	<div class="container-form-add">
-		<form class="form-add" action="" method="POST"
-			enctype="multipart/form-data">
-			<div class="information">
+		<div class="information">
+			<form class="form-add" method="POST" enctype="multipart/form-data">
 				<br>Name:<br> <input type="text" name="name">
 				<div class="price-discount">
 					<div id="name">
 						<p>Price:</p>
-						<input type="number" id="name" name="name">
+						<input type="number" id="name" name="price">
 					</div>
 					<div id="discount">
 						<p>Discount:</p>
@@ -26,33 +25,29 @@ s</head>
 				<div class="ram-memory">
 					<div class="ram">
 						<p>RAM:</p>
-						<input type="text" name="name">
+						<input type="text" name="ram">
 					</div>
 					<div class="memory">
 						<p>Memory:</p>
-						<input type="text" name="name">
+						<input type="text" name="memory">
 					</div>
 					<div class="camera">
 						<p>Camera:</p>
-						<input type="text" name="name">
+						<input type="text" name="camera">
 					</div>
-
 				</div>
 
 				<p>Description:</p>
 				<textarea id="description" name="description"></textarea>
 				<p>Number Of Product:</p>
-				<input type="number" id="numberOfProduct" name="name"><br>
+				<input type="number" id="numberOfProduct" name="numberOfProduct"><br>
 				<div class="category">
 					<p>Category:</p>
 					<select>
-						<option>Category1</option>
-						<option>Category1</option>
-						<option>Category1</option>
-						<option>Category1</option>
-						<option>Category1</option>
-						<option>Category1</option>
-						<option>Category1</option>
+						<option value="None">Select Category</option>
+						<c:forEach var="category" items="${ category }">
+							<option value="${ category.id }">${ category.category }</option>
+						</c:forEach>
 					</select>
 				</div>
 				<div class="list-image">
@@ -96,10 +91,11 @@ s</head>
 					<textarea></textarea>
 				</div>
 				<div class="add">
-					<button>Thêm sản phẩm</button>
+					<input type="submit" value="Thêm sản phẩm">
 				</div>
-			</div>
-		</form>
+			</form>
+
+		</div>
 	</div>
 	<script lang="javascript"
 		src="<c:url value='/resources/js/form-add.js'/>"></script>
