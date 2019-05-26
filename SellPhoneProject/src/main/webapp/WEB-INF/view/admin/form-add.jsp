@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,45 +11,49 @@
 <body>
 	<div class="container-form-add">
 		<div class="information">
-			<form class="form-add" method="POST" enctype="multipart/form-data">
-				<br>Name:<br> <input type="text" name="name">
+			<form:form class="form-add" action="" method="post"
+				modelAttribute="product">
+				<br>Name:<br>
+				<form:input path="name" />
 				<div class="price-discount">
 					<div id="name">
 						<p>Price:</p>
-						<input type="number" id="name" name="price">
+						<input name="price" />
 					</div>
 					<div id="discount">
 						<p>Discount:</p>
-						<input type="number" id="discount" name="discount">
+						<input id="discount" name="discount" />
 					</div>
 				</div>
 				<div class="ram-memory">
 					<div class="ram">
 						<p>RAM:</p>
-						<input type="text" name="ram">
+						<form:input path="ram" />
 					</div>
 					<div class="memory">
 						<p>Memory:</p>
-						<input type="text" name="memory">
+						<form:input path="memory" />
 					</div>
 					<div class="camera">
 						<p>Camera:</p>
-						<input type="text" name="camera">
+						<form:input path="camera" />
 					</div>
 				</div>
 
 				<p>Description:</p>
-				<textarea id="description" name="description"></textarea>
+				<form:textarea id="description" path="description"></form:textarea>
 				<p>Number Of Product:</p>
-				<input type="number" id="numberOfProduct" name="numberOfProduct"><br>
+				<input id="numberOfProduct" name="numberOfProduct" />
+				<br>
 				<div class="category">
 					<p>Category:</p>
-					<select>
-						<option value="None">Select Category</option>
+					<select name="category" id="cate">
+						<option value="-1">Select Category</option>
 						<c:forEach var="category" items="${ category }">
 							<option value="${ category.id }">${ category.category }</option>
 						</c:forEach>
 					</select>
+					<div style='color: red' id="error"></div>
 				</div>
 				<div class="list-image">
 					<p>Avatar:</p>
@@ -88,15 +93,24 @@
 
 				<div class="long-description">
 					<p>Long Description:</p>
-					<textarea></textarea>
+					<form:textarea path="longDescription"></form:textarea>
 				</div>
 				<div class="add">
-					<input type="submit" value="Thêm sản phẩm">
+					<button id="add-product">ADD PRODUCT</button>
 				</div>
-			</form>
+			</form:form>
 
 		</div>
 	</div>
+	<form action="test-select">
+		<select name="category" id="category">
+			<option value="-1">Select Category</option>
+			<c:forEach var="category" items="${ category }">
+				<option value="${ category.id }">${ category.category }</option>
+			</c:forEach>
+		</select>
+		<input type="submit" value="click">
+	</form>
 	<script lang="javascript"
 		src="<c:url value='/resources/js/form-add.js'/>"></script>
 </body>

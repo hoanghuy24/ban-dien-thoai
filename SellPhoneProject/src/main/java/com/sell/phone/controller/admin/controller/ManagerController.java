@@ -2,6 +2,8 @@ package com.sell.phone.controller.admin.controller;
 
 import com.sell.dao.admin.impl.UserProfileImpl;
 import com.sell.dao.impl.CategoryImpl;
+import com.sell.dao.impl.ProductImpl;
+import com.sell.entity.Category;
 import com.sell.entity.Product;
 import com.sell.entity.usermanager.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/admin")
@@ -26,6 +29,8 @@ public class ManagerController {
 	UserProfileImpl userProfileImpl;
 	@Autowired
 	CategoryImpl categoryImpl;
+	@Autowired
+	ProductImpl productImpl;
 
 	@RequestMapping("/user")
 	public String user(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
@@ -65,21 +70,43 @@ public class ManagerController {
 	@GetMapping("add-product")
 	public String addProduct(Model model) {
 		model.addAttribute("category", categoryImpl.getListCategory());
+		Product product = new Product();
+		product.setName("Iphone");
+		model.addAttribute("product", product);
 		return "admin/form-add";
 	}
 
-	//@PostMapping("add-product")
-	/*public String addProduct(@RequestParam(name = "price", defaultValue = "0") int price,
-			@RequestParam(name = "discount", defaultValue = "0") int discount,
-			@RequestParam(name = "numberOfProduct", defaultValue = "0") int numberOfProduct,
-			@RequestParam("name") String name, @RequestParam("")) {
-		
-		return "redirect:/";
-	}*/
-	
 	@PostMapping("add-product")
-	public String addProduct(HttpServletRequest request) {
-		System.out.println(request.getParameter("name"));
-		return "";
+	public String addProduct(@RequestParam("discount") int discount,
+			@RequestParam("numberOfProduct") int numberOfProduct, @ModelAttribute("product") Product product,
+			@RequestParam("category") int category) {
+		System.out.println(discount);
+		System.out.println("come here");
+		Category category2 = categoryImpl.getCategory(category);
+		product.setDiscount(discount);
+		product.setNumberOfProduct(numberOfProduct);
+		product.setCategory(category2);
+		productImpl.insertProduct(product);
+
+		return "redirect:complete";
+	}
+
+	int a = 5;
+
+	@GetMapping("complete")
+	public String addComplete(HttpServletResponse response, Model model) {
+		response.setIntHeader("refresh", 1);
+		model.addAttribute("s", a);
+		a--;
+		if (a == 0) {
+			return "redirect:add-product";
+		}
+		return "admin/Complete";
+	}
+
+	@GetMapping("test-select")
+	public String testS(@RequestParam("category") int cate) {
+		System.out.println("cate = " + cate);
+		return "redirect:add-product";
 	}
 }

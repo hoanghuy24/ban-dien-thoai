@@ -84,3 +84,16 @@ fileDel4.onclick = function(){
 
 var urlImg = document.getElementById("file-1");
 console.log(urlImg.value);
+
+
+var addProduct = document.getElementById("add-product");
+var error = document.getElementById("error");
+var category = document.getElementById("cate").value;
+
+addProduct.onclick = function(){
+	var category = document.getElementById("cate").value;
+	if(category == -1){
+		error.innerHTML = "Please choose Category";
+		return false;
+	}
+}
