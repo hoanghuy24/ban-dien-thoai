@@ -60,20 +60,19 @@ public class UserProfileImpl implements UserProfileDAO {
 
 	public UserProfile getUserProfileByUserId(int id) {
 		Session session = HibernateUI.getSessionFactory().openSession();
-		return (UserProfile) session
-				.createQuery("FROM " + UserProfile.class.getName() + " as p where p.user_id = " + id).list().get(0);
+		Users users = session.get(Users.class, id);
+		UserProfile profile = users.getUserProfile();
+		return profile;
 	}
 
 	public boolean updateProfile(UserProfile profile) {
 		Session session = HibernateUI.getSessionFactory().openSession();
-		Transaction transaction = null;
 		try {
-			transaction = session.beginTransaction();
 			session.update(profile);
-			transaction.commit();
+			session.beginTransaction().commit();
 			return true;
 		} catch (Exception e) {
-			transaction.rollback();
+			session.beginTransaction().rollback();
 			e.printStackTrace();
 			return false;
 		} finally {

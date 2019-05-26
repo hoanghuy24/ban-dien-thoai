@@ -35,27 +35,14 @@ public class ManagerController {
 	@RequestMapping("/user")
 	public String user(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		int id = (Integer) request.getSession().getAttribute("user_id");
+		System.out.println("id = " +id);
+		if(id == 0) {
+			
+		}
 		model.addAttribute("user", userProfileImpl.getUserProfileByUserId(id));
 		return "/admin/user";
 	}
 
-	@PostMapping("/update-profile")
-	public String updateProfile(@ModelAttribute UserProfile userProfile, RedirectAttributes redirectAttributes) {
-		if (this.userProfileImpl.updateProfile(userProfile)) {
-			redirectAttributes.addAttribute("msg", "Edit success !");
-			System.out.println("complete");
-		} else {
-			redirectAttributes.addAttribute("msg", "Edit Fail !");
-			System.out.println(userProfile);
-		}
-
-		return "redirect:/admin/user";
-	}
-
-	@GetMapping("/update-profile")
-	public String updateProfile() {
-		return "redirect:/admin/user";
-	}
 
 	@RequestMapping("/dashboard")
 	public String dashboard() {
@@ -104,9 +91,16 @@ public class ManagerController {
 		return "admin/Complete";
 	}
 
-	@GetMapping("test-select")
-	public String testS(@RequestParam("category") int cate) {
-		System.out.println("cate = " + cate);
-		return "redirect:add-product";
+	int notAdmin = 5;
+	@GetMapping("not-admin")
+	public String notAdmin(HttpServletResponse response, Model model) {
+		response.setIntHeader("refresh", 1);
+		notAdmin --;
+		model.addAttribute("second", notAdmin);
+		if(notAdmin == 0) {
+			return "redirect:/";
+		}
+		return "admin/not-admin";
+		
 	}
 }

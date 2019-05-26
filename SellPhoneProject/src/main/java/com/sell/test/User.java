@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.validator.constraints.Length;
 
 import com.sell.entity.PersonOrder;
+import com.sell.entity.usermanager.UserProfile;
 import com.sell.entity.usermanager.Users;
 import com.sell.hibernate.HibernateUI;
 
@@ -30,8 +31,10 @@ public class User {
 	
 	public static void main(String[] args) {
 		Session session = HibernateUI.getSessionFactory().openSession();
-		Users users = session.get(Users.class, 10);
-		System.out.println(users.getListPersonOrder().size());
+		Users users = session.get(Users.class, 15);
+		System.out.println(users.getUsername());
+		UserProfile profile = users.getUserProfile();
+		System.out.println(profile.getId());
 	}
 	
 	

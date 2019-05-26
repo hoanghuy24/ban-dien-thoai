@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sell.entity.usermanager.UserProfile;
+import com.sell.entity.usermanager.Users;
+import com.sell.hibernate.HibernateUI;
+
 @Controller
 public class Control {
 
@@ -23,10 +28,11 @@ public class Control {
 
 		return "formValid";
 	}
-	
+
 	@PostMapping("testValid")
-	public String test(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request, HttpServletResponse response) {
-		if(result.hasErrors()) {
+	public String test(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request,
+			HttpServletResponse response) {
+		if (result.hasErrors()) {
 			return "formValid";
 		}
 		HttpSession session = request.getSession();
@@ -36,5 +42,12 @@ public class Control {
 		response.addCookie(cookie);
 		return "Home";
 	}
-	
+
+	public static void main(String[] args) {
+		Session session = HibernateUI.getSessionFactory().openSession();
+		Users users = session.get(Users.class, 15);
+
+		UserProfile profile = users.getUserProfile();
+		System.out.println(profile.getAddress());
+	}
 }

@@ -4,6 +4,7 @@ import com.sell.dao.admin.impl.UserProfileImpl;
 import com.sell.dao.admin.impl.UsersImpl;
 import com.sell.entity.Cart;
 import com.sell.entity.usermanager.Role;
+import com.sell.entity.usermanager.UserProfile;
 import com.sell.entity.usermanager.Users;
 import com.sell.hibernate.HibernateUI;
 import com.sell.security.MD5;
@@ -89,11 +90,14 @@ public class AdminServices {
 	
 	public void register(Users users, HttpServletResponse response) {
 		MD5 md5 = new MD5();
+		UserProfile profile = new UserProfile();
+		profile.setUser_id(users);
 		users.setPassword(md5.convertToMessageDigest(users.getPassword()));
 		Session session = HibernateUI.getSessionFactory().openSession();
 		Role role = session.get(Role.class, 1);
 		users.setId_role(role);
 		Cart cart = new Cart("", users);
+		session.save(profile);
 		session.save(cart);
 		session.save(users);
 		Cookie cookie = new Cookie("key", md5.convertToMessageDigest(users.getUsername()));
