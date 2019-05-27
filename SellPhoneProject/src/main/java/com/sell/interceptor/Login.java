@@ -18,7 +18,7 @@ public class Login extends HandlerInterceptorAdapter {
 		System.out.println("PreHandle");
 		if(request.getSession().getAttribute("user_id") == null) {
 			request.setAttribute("msg", "Vui lòng đăng nhập ");
-			response.sendRedirect(request.getContextPath()+"/login");
+			request.getRequestDispatcher("/login").forward(request, response);;
 			return false;
 		}
 		return true;

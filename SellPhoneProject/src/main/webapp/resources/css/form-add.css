@@ -192,3 +192,8 @@ textarea:hover{
     height: 120px;
     padding: 10px;
 }
+
+.validate-data{
+    color: red;
+    font-size: 12px;
+}

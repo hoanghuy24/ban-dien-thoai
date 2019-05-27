@@ -56,6 +56,7 @@
                         <a class="cart-icon" href="${ home}/cart" id="cart"><small>Giỏ hàng - ${ sessionScope.user.username }
                             <i class="fas fa-shopping-cart"></i></small>
                         </a>
+                        <a class="cart-icon" href="${ home}/profile/" id="cart"><small>Profile</small></a>
                         <div class="drop shadow-sm p-3 mb-5 bg-white rounded">
                             <a href="${ home }/ordered"><small>Sản phẩm đã đặt</small></a><br>
                             <a href="${ home}/logout"><small>Đăng xuất</small></a>

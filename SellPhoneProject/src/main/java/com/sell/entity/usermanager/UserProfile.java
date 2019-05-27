@@ -25,9 +25,6 @@ public class UserProfile {
 	@OneToOne
 	@JoinColumn(name = "id_user")
 	private Users user_id;
-	@Email(message = "Không đúng định dạng email")
-	@NotEmpty(message = "Không thể trống")
-	@NotBlank(message = "Không thể trống")
 	@Column
 	private String email;
 	@Column

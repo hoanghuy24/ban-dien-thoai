@@ -35,14 +35,13 @@ public class ManagerController {
 	@RequestMapping("/user")
 	public String user(Model model, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		int id = (Integer) request.getSession().getAttribute("user_id");
-		System.out.println("id = " +id);
-		if(id == 0) {
-			
+		System.out.println("id = " + id);
+		if (id == 0) {
+
 		}
 		model.addAttribute("user", userProfileImpl.getUserProfileByUserId(id));
 		return "/admin/user";
 	}
-
 
 	@RequestMapping("/dashboard")
 	public String dashboard() {
@@ -58,23 +57,18 @@ public class ManagerController {
 	public String addProduct(Model model) {
 		model.addAttribute("category", categoryImpl.getListCategory());
 		Product product = new Product();
-		product.setName("Iphone");
 		model.addAttribute("product", product);
 		return "admin/form-add";
 	}
 
 	@PostMapping("add-product")
-	public String addProduct(@RequestParam("discount") int discount,
-			@RequestParam("numberOfProduct") int numberOfProduct, @ModelAttribute("product") Product product,
-			@RequestParam("category") int category) {
-		System.out.println(discount);
-		System.out.println("come here");
+	public String addProduct(@RequestParam(name="category", required = false) int category, @RequestParam(name="discount", required = false) int discount,
+			@RequestParam(name="numberOfProduct", required = false) int numberOfProduct, @ModelAttribute("product") Product product) {
 		Category category2 = categoryImpl.getCategory(category);
 		product.setDiscount(discount);
 		product.setNumberOfProduct(numberOfProduct);
 		product.setCategory(category2);
 		productImpl.insertProduct(product);
-
 		return "redirect:complete";
 	}
 
@@ -92,15 +86,28 @@ public class ManagerController {
 	}
 
 	int notAdmin = 5;
+
 	@GetMapping("not-admin")
 	public String notAdmin(HttpServletResponse response, Model model) {
 		response.setIntHeader("refresh", 1);
-		notAdmin --;
+		notAdmin--;
 		model.addAttribute("second", notAdmin);
-		if(notAdmin == 0) {
+		if (notAdmin == 0) {
 			return "redirect:/";
 		}
 		return "admin/not-admin";
-		
+
+	}
+	
+	@GetMapping("test-12")
+	public String s(Model model) {
+		model.addAttribute("category", categoryImpl.getListCategory());
+		return "admin/test";
+	}
+	
+	@PostMapping("test-12")
+	public String s(@RequestParam(name="category", required = false, defaultValue = "-12") int category) {
+		System.out.println(category);
+		return "redirect:test-12";
 	}
 }

@@ -24,6 +24,7 @@
         	<mvc:mapping path="/cart"/>
         	<mvc:mapping path="/pay"/>
         	<mvc:mapping path="/admin/user"/>
+        	<mvc:mapping path="/profile/**"/>
         	<bean class="com.sell.interceptor.Login"></bean>
         </mvc:interceptor> 
         <mvc:interceptor>

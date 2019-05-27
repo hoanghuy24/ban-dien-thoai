@@ -21,50 +21,58 @@ import javax.validation.Valid;
 
 @Controller
 public class AdminController {
-    @Autowired
-    AdminServices adminServices;
-    @Autowired
-    UserProfileImpl profile;
+	@Autowired
+	AdminServices adminServices;
+	@Autowired
+	UserProfileImpl profile;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(@RequestParam(value = "msg", required = false) String msg, Model model, HttpServletRequest request) {
-        if(adminServices.checkCookieService(request)) {
-        	return "redirect:/";
-        }
-        else {
-        	return "admin/login";
-        }
-    }
-    
-    @RequestMapping("admin/login")
-    public String adminLogin() {
-    	return "redirect:login";
-    }
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(@RequestParam(value = "msg", required = false) String msg, Model model,
+			HttpServletRequest request) {
+		if (adminServices.checkCookieService(request)) {
+			return "redirect:/";
+		} else {
+			model.addAttribute("msg", msg);
+			return "admin/login";
+		}
+	}
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam(value = "username") String username,
-                        @RequestParam(value = "password") String password, RedirectAttributes redirectAttributes, HttpServletResponse response) {
-        return adminServices.resultLogin(username, password, redirectAttributes, response);
-    }
+	@RequestMapping("admin/login")
+	public String adminLogin() {
+		return "redirect:login";
+	}
 
-    @RequestMapping("/logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
-        adminServices.Logout(request, response);
-        return "redirect:/";
-    }
-    
-    @GetMapping("register")
-    public String register(Model model) {
-    	model.addAttribute("newUser", new Users());
-    	return "admin/register";
-    }
-    
-    @PostMapping("register")
-    public String register(@Valid @ModelAttribute("newUser") Users users, BindingResult result, Model model, HttpServletResponse response) {
-    	if(result.hasErrors()) {
-    		return "admin/register";
-    	}
-    	adminServices.register(users, response);
-    	return "redirect:/";
-    }
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@RequestParam(value = "username") String username,
+			@RequestParam(value = "password") String password, RedirectAttributes redirectAttributes,
+			HttpServletResponse response) {
+		if (adminServices.resultLogin(username, password, redirectAttributes, response)) {
+			return "redirect:/";
+		} else {
+			return "redirect:/login";
+
+		}
+	}
+
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		adminServices.Logout(request, response);
+		return "redirect:/";
+	}
+
+	@GetMapping("register")
+	public String register(Model model) {
+		model.addAttribute("newUser", new Users());
+		return "admin/register";
+	}
+
+	@PostMapping("register")
+	public String register(@Valid @ModelAttribute("newUser") Users users, BindingResult result, Model model,
+			HttpServletResponse response) {
+		if (result.hasErrors()) {
+			return "admin/register";
+		}
+		adminServices.register(users, response);
+		return "redirect:/";
+	}
 }

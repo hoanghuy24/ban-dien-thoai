@@ -21,7 +21,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Edit Profile</h4>
+                        <h4 class="title">Edit Profile ${ msg }</h4>
                     </div>
                     <div class="content">
                         <form:form modelAttribute="profile" action="update-profile" method="post">

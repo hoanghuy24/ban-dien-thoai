@@ -11,18 +11,20 @@
 <body>
 	<div class="container-form-add">
 		<div class="information">
-			<form:form class="form-add" action="" method="post"
+			<form:form class="form-add" action="test-12" method="post"
 				modelAttribute="product">
 				<br>Name:<br>
 				<form:input path="name" />
 				<div class="price-discount">
 					<div id="name">
 						<p>Price:</p>
-						<input name="price" />
+						<input name="price" id="price" />
+						<p class="validate-data" id="errorPrice"></p>
 					</div>
 					<div id="discount">
 						<p>Discount:</p>
-						<input id="discount" name="discount" />
+						<input id="discount-1" type="number" name="discount" />
+						<p class="validate-data" id="errorDiscount"></p>
 					</div>
 				</div>
 				<div class="ram-memory">
@@ -43,18 +45,23 @@
 				<p>Description:</p>
 				<form:textarea id="description" path="description"></form:textarea>
 				<p>Number Of Product:</p>
-				<input id="numberOfProduct" name="numberOfProduct" />
+				<input id="numberOfProduct" type="number" name="numberOfProduct" />
+				<p class="validate-data" id="errorNumber"></p>
 				<br>
+				
+				
 				<div class="category">
 					<p>Category:</p>
 					<select name="category" id="cate">
 						<option value="-1">Select Category</option>
-						<c:forEach var="category" items="${ category }">
-							<option value="${ category.id }">${ category.category }</option>
+						<c:forEach var="c" items="${ category }">
+							<option value="${ c.id }">${ c.category }</option>
 						</c:forEach>
 					</select>
-					<div style='color: red' id="error"></div>
+					<div class="validate-data" id="error"></div>
 				</div>
+				
+				
 				<div class="list-image">
 					<p>Avatar:</p>
 					<input type="file" id="avatar" name="avatar">
@@ -90,7 +97,6 @@
 					</div>
 					<button id="button">Thêm ảnh minh họa</button>
 				</div>
-
 				<div class="long-description">
 					<p>Long Description:</p>
 					<form:textarea path="longDescription"></form:textarea>
@@ -102,15 +108,6 @@
 
 		</div>
 	</div>
-	<form action="test-select">
-		<select name="category" id="category">
-			<option value="-1">Select Category</option>
-			<c:forEach var="category" items="${ category }">
-				<option value="${ category.id }">${ category.category }</option>
-			</c:forEach>
-		</select>
-		<input type="submit" value="click">
-	</form>
 	<script lang="javascript"
 		src="<c:url value='/resources/js/form-add.js'/>"></script>
 </body>

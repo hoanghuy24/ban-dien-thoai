@@ -89,8 +89,7 @@ public class UserProfileImpl implements UserProfileDAO {
 	}
 	
 	public UserProfile getUserProfileById(int id) {
-		SessionFactory factory = new Configuration().configure().buildSessionFactory();
-		Session session = factory.openSession();
+		Session session = HibernateUI.getSessionFactory().openSession();
 		UserProfile userProfile = session.get(UserProfile.class, id);
 		session.close();
 		return userProfile;

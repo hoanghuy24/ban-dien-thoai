@@ -30,7 +30,7 @@ public class AdminServices {
 	@Autowired
 	UserProfileImpl profile;
 
-	public String resultLogin(String username, String password, RedirectAttributes redirectAttributes,
+	public boolean resultLogin(String username, String password, RedirectAttributes redirectAttributes,
 			HttpServletResponse response) {
 		MD5 md5 = new MD5();
 		for (Users users : userimpl.getListUsers()) {
@@ -42,12 +42,12 @@ public class AdminServices {
 				Cookie cookie = new Cookie("key", md5.convertToMessageDigest(users.getUsername()));
 				cookie.setMaxAge(60 * 60 * 12);
 				response.addCookie(cookie);
-				return "redirect:/";
+				return true;
 			}
 		}
 		// fail
 		redirectAttributes.addAttribute("msg", "Wrong Username or Password !!");
-		return "redirect:/login";
+		return false;
 	}
 
 	public boolean checkCookieService(HttpServletRequest request) {
@@ -97,9 +97,9 @@ public class AdminServices {
 		Role role = session.get(Role.class, 1);
 		users.setId_role(role);
 		Cart cart = new Cart("", users);
+		session.save(users);
 		session.save(profile);
 		session.save(cart);
-		session.save(users);
 		Cookie cookie = new Cookie("key", md5.convertToMessageDigest(users.getUsername()));
 		cookie.setMaxAge(60*60*24);
 		response.addCookie(cookie);
