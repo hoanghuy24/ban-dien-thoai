@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 style="color: red">You not the Admin, page redirect in ${ second }s</h1>
+	<h1 style="color: red" align="center">You are not an administrator, page will redirect in ${ timeOut }s</h1>
 </body>
 </html>

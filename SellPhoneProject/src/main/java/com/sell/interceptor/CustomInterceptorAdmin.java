@@ -8,7 +8,6 @@ import com.sell.service.AdminServices;
 import com.sell.service.HomeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.Cookie;
@@ -31,6 +30,7 @@ public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		System.out.println("intercep custom");
 		MD5 md5 = new MD5();
 		Cookie cookie[] = request.getCookies();
 		if (cookie != null) {
@@ -51,16 +51,4 @@ public class CustomInterceptorAdmin extends HandlerInterceptorAdapter {
 		return true;
 	}
 
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		System.out.println("postHandle");
-	}
-
-	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-			throws Exception {
-		super.afterCompletion(request, response, handler, ex);
-		System.out.println("affterComletion");
-	}
 }

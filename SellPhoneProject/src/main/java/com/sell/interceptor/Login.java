@@ -15,25 +15,12 @@ public class Login extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("PreHandle");
+		System.out.println("interceptor login");
 		if(request.getSession().getAttribute("user_id") == null) {
 			request.setAttribute("msg", "Vui lòng đăng nhập ");
 			request.getRequestDispatcher("/login").forward(request, response);;
 			return false;
 		}
 		return true;
-	}
-
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		System.out.println("postHandle");
-	}
-
-	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-			throws Exception {
-		super.afterCompletion(request, response, handler, ex);
-		System.out.println("affterComletion");
 	}
 }

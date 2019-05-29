@@ -61,6 +61,10 @@ public class CategoryController {
         return "/Category";
     }
     
+    @RequestMapping("{category}")
+    public String category(@PathVariable("category") String category) {
+    	return "/Category";
+    }
     
     @RequestMapping("HTC-page-{i}")
     public String htcPage(@PathVariable("i") int page, Model model) {
@@ -144,7 +148,7 @@ public class CategoryController {
     @RequestMapping("{product}-{id}")
     public String ProductView(@PathVariable("id") int id, Model model) {
     	categoryService.ProductView(model, id);
-    	
+    	System.out.println("Hhiihi");
     	return "show-info";
     }
 }

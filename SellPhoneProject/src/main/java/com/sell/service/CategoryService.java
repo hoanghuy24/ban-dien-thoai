@@ -42,6 +42,10 @@ public class CategoryService {
     	paginationService.Pagination(page, model, IDCategory.categorySony, IDCategory.total);
     }
     
+    public void category(String category) {
+    	
+    }
+    
     public void ProductView(Model model, int id) {
     	Product p = product.getProduct(id);
     	model.addAttribute("product", p);

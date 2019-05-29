@@ -92,6 +92,11 @@ buttonAdd.onclick = function() {
 	var discount = document.getElementById("discount-1").value;
 	var price = document.getElementById("price").value;
 	var numberOP = document.getElementById("numberOfProduct").value;
+	var hidden = document.getElementById("category_id");
+	
+	hidden.value = category;
+	
+	console.log(hidden.value);
 	var a = 0;
 	if (discount == "" || discount < 0) {
 		var errorD = document.getElementById("errorDiscount");
@@ -132,7 +137,6 @@ buttonAdd.onclick = function() {
 		var errorD = document.getElementById("cate");
 		errorD.innerHTML = "";
 	}
-
 	console.log(a);
 	if (a != 0) {
 		return false;

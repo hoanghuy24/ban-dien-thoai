@@ -55,13 +55,13 @@
 
             <ul class="nav">
                 <li>
-                    <a href="dashboard">
+                    <a href="${ pageContext.request.contextPath }/admin/">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>Category</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="user">
+                    <a href="${ pageContext.request.contextPath }/profile/">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>

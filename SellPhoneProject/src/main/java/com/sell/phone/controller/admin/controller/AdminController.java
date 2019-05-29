@@ -75,4 +75,25 @@ public class AdminController {
 		adminServices.register(users, response);
 		return "redirect:/";
 	}
+
+	int timeOut = 5;
+
+	@GetMapping("not-admin")
+	public String notAdmin(HttpServletResponse response, Model model) {
+		System.out.println("Vao day");
+		response.setIntHeader("refresh", 1);
+		timeOut--;
+		if (timeOut == 0) {
+			timeOut = 5;
+			return "redirect:/";
+		}
+		model.addAttribute("timeOut", timeOut);
+		return "admin/not-admin";
+	}
+	@GetMapping("admin")
+	public String admin() {
+		return "redirect:admin/";
+	}
+	
+	
 }

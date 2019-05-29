@@ -113,7 +113,7 @@ public class ItemImpl implements ItemDAO {
 			item.setStatus("ordered");
 			session.update(item);
 			for (Users u : listUsers) {
-				if (u.getId_role().getId() == 2) {
+				if (u.getId_role() != null && u.getId_role().getId() == 2) {
 					int price = (int)(item.getNumberOfProduct() * item.getProduct().getPrice());
 					PersonOrder order = new PersonOrder(1, fullName, "order", phone, addressOrder, otherInformation,
 							item.getNumberOfProduct(), price, item.getProduct(), u);
