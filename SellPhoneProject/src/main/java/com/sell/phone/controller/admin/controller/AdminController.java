@@ -90,6 +90,9 @@ public class AdminController {
 	public String admin() {
 		return "redirect:admin/";
 	}
-	
+
+    public void Say() {
+        System.out.println("HELLO WORLD");
+    }
 	
 }
