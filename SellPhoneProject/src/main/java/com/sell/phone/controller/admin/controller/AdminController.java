@@ -67,7 +67,7 @@ public class AdminController {
 		if (result.hasErrors()) {
 			return "admin/register";
 		}
-        System.out.println("HHHHH");
+		System.out.println("HELLO");
 		adminServices.register(users, response);
 		return "redirect:/";
 	}

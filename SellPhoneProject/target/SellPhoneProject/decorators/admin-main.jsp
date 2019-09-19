@@ -15,6 +15,7 @@
     <!-- Manager -->
 
     <!-- Bootstrap core CSS     -->
+    
     <link href="<c:url value="/resources/assets/css/bootstrap.min.css"/>" rel="stylesheet"/>
 
     <!-- Animation library for notifications   -->
@@ -33,7 +34,9 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="<c:url value="/resources/assets/css/pe-icon-7-stroke.css"/>" rel="stylesheet"/>
-
+	<!-- css of form-add -->
+	<link rel="stylesheet" href="<c:url value='/resources/css/form-add.css'></c:url>"/>
+	
 </head>
 <body>
 
@@ -52,13 +55,13 @@
 
             <ul class="nav">
                 <li>
-                    <a href="dashboard">
+                    <a href="${ pageContext.request.contextPath }/admin/">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>Category</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="user">
+                    <a href="${ pageContext.request.contextPath }/profile/">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>
