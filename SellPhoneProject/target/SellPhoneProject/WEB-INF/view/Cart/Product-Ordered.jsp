@@ -26,7 +26,7 @@
 									<img src="${ item.product.image }" width="55px">
 								</div>
 								<div class="col-sm-8">
-									<strong>${ item.product.name }</strong><br> <small>Mô
+									<strong><a href="product-${ item.product.id }">${ item.product.name }</a></strong><br> <small>Mô
 										tả: ${ item.product.description } </small> <br> <small>Số
 										lượng: ${ item.numberOfProduct } </small>
 								</div>

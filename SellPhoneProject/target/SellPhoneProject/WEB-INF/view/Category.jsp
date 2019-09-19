@@ -28,8 +28,10 @@
                             <c:set var="sale" value="${ (product.discount * 100)/product.getPrice()}"/>
                             <div class="sale">-${ Math.round(sale) }%</div>
                         </c:if>
+                        
                     </div>
                 </div>
+                
             </c:forEach>
         </div>
     </section>
